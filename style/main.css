@@ -1,0 +1,132 @@
+#main::after {
+	content: "";
+	background-image: url('../images/cs_bg_champions.png');
+	background-position-x: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	height: 100%;
+	width: 100%;
+	opacity: 0.10;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: fixed;
+	z-index: -1;
+	background-color: #242424;
+}	
+
+progress {
+	width: 95%;
+	margin: auto;
+	background: transparent;
+	border: solid 1px rgba(0,0,0,0.5);  
+	height: 1em;  
+	border-radius: 2px; 
+}
+
+progress::-webkit-progress-bar {
+	background: transparent;
+	border-radius: 0px;
+}
+
+progress::-webkit-progress-value {
+	background: #1A4857;
+	border-radius: 0px; 
+}
+
+progress::-moz-progress-bar {
+	background: green;
+	border-radius: 0px;
+}
+
+progress.kills
+{
+	width: 100%;
+}
+
+hr
+{
+	border-top: #B1B1B1 1px solid;
+}
+
+.navbar
+{
+	border-radius: 0;
+	margin: 0;
+}
+
+a.champions:hover, a.labelchart:hover, a.thumbnail:hover
+{
+	text-decoration: none;
+}
+
+#statistics
+{
+	margin-top: 1em;
+}
+
+#statistics th
+{
+	text-align: center;
+	cursor: pointer;
+}
+
+#statistics td
+{
+	text-align: center;
+}
+#statistics td.champion, #statistics td.winrate
+{
+	vertical-align: middle;
+}
+
+#statistics th:after, #ranking th:after
+{
+	content: "";
+	background: url('../images/triangle.png');
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 50%;
+}
+
+input[readonly="readonly"]
+{
+	cursor:text !important;
+}
+
+img.avatar
+{
+	height: 2.5em;
+}
+img.medium
+{
+	height: 3.5em;
+}
+
+.labelchart img
+{
+	display: block;
+	margin-left: 0px;
+	height: 50px;
+}
+
+img.example
+{
+	height: 1.5em;
+	vertical-align: initial;
+	border: black solid 1px;
+}
+
+#collapseOptionsButton
+{
+	margin-top: 1em;
+}
+
+#collapseOptions
+{
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+}

@@ -1,0 +1,8 @@
+/config/api_key.php
+/config/server.php
+/cache/api/champions.json
+/cache/server/backups/
+/cache/server/champions.json
+/cache/server/matchs.json
+/cache/server/champions_ranking.json
+/cache/server/teams.json

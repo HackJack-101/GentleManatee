@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^champions$ pages/champions.php [L,QSA]
+RewriteRule ^champions/$ pages/champions.php [L,QSA]
+RewriteRule ^champions/(.+)$ pages/champion_profile.php?name=$1 [L,QSA]
