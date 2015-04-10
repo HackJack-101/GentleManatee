@@ -382,5 +382,5 @@ $games = $teams_data->red->wins + $teams_data->blue->wins;
 </div>
 
 <?php
-require_once('layouts/footer.php');
+require_once $_SERVER['DOCUMENT_ROOT'] . 'layouts/footer.php';
 ?>
