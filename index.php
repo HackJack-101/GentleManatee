@@ -236,8 +236,10 @@ $all_ranking->challenger = round($all_ranking->challenger / $players * 100, 2);
 					allowPointSelect: true,
 					cursor: 'pointer',
 					dataLabels: {
+						distance: -50,
 						enabled: true,
-						format: '<b>{point.name}</b>: {point.percentage:.2f} %',
+						crop: true,
+						format: '<b>{point.name}</b> :<br/>{point.percentage:.2f} %',
 						style: {
 							color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
 						}
@@ -382,5 +384,5 @@ $games = $teams_data->red->wins + $teams_data->blue->wins;
 </div>
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . 'layouts/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/footer.php';
 ?>

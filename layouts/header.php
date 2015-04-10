@@ -3,7 +3,7 @@ if (empty($html_title))
 	$html_title = 'Home';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<title>GentleManatee - <?php echo $html_title ?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
@@ -15,8 +15,7 @@ if (empty($html_title))
 		<link rel="stylesheet" href="/style/main.css" type="text/css"/>
 
 		<meta name="description" content="URF URF URF"/>
-        <meta name="keywords" content="URF"/>
-        <meta name="subject" content="League of Legends"/>
+        <meta name="keywords" content="URF, Manatee, Gentleman"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 		<meta property="og:locale" content="en_US"/>
@@ -32,6 +31,7 @@ if (empty($html_title))
 		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 		<script type="text/javascript" src="/scripts/champions.js"></script> 
+		<script type="text/javascript" src="/scripts/charts.js"></script> 
 		<script type="text/javascript">
 			$(document).ready(function ()
 			{
@@ -50,6 +50,7 @@ if (empty($html_title))
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li><a href="/champions">Champions</a></li>	
+						<li><a href="/awards">Awards</a></li>	
 					</ul>
 				</div>
 			</div>
