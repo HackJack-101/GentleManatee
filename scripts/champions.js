@@ -39,14 +39,6 @@ function resetProgress()
 }
 
 $(document).ready(function () {
-	displayProgress();
-//	animateProgress();
-//
-//	$('th').on('click', function () {
-//		resetProgress();
-//		animateProgress();
-//	});
-	
 	$("input").change(function () {
 		if ($(this).is(':checked'))
 			$('.' + $(this).data('target')).each(function () {

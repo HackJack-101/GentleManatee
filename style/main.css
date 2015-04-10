@@ -1,3 +1,8 @@
+#main
+{
+	background: rgba(255,255,255,0.5);
+}
+
 #main::after {
 	content: "";
 	background-image: url('../images/cs_bg_champions.png');
@@ -64,6 +69,7 @@ a.champions:hover, a.labelchart:hover, a.thumbnail:hover
 #statistics
 {
 	margin-top: 1em;
+	display: none;
 }
 
 #statistics th

@@ -5,7 +5,7 @@ if (empty($html_title))
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>URF Stats - <?php echo $html_title ?></title>
+		<title>GentleManatee - <?php echo $html_title ?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
 
 		<link href="/favicon.png" type="image/png" rel="icon" />
@@ -31,7 +31,7 @@ if (empty($html_title))
 		<script type="text/javascript" src="http://code.highcharts.com/highcharts-3d.js"></script>
 		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-		<script type="text/javascript" src="/scripts/progress.js"></script> 
+		<script type="text/javascript" src="/scripts/champions.js"></script> 
 		<script type="text/javascript">
 			$(document).ready(function ()
 			{
