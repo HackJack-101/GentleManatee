@@ -50,8 +50,9 @@ body{
 	font-family: 'Limelight', cursive;
 }
 
-#intro img {
-
+#intro img 
+{
+	height: 75vh;
 	margin: auto;
 }
 

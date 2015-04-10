@@ -41,7 +41,7 @@
 		<button onclick="mute();" id="muteMusic"><span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span></button>
 
 		<div id="slide1">
-			<div class="content">
+			<div class="content container">
 				<div id="intro">
 					<img class="img-responsive" src="/images/gentlemanatee.png"/>
 				</div>
@@ -50,7 +50,7 @@
 		</div> 
 
 		<div id="slide2">
-			<div class="content" >
+			<div class="content container" >
 				<div class="row">
 					<div class="col-md-12">
 						<h2 id="awards" class="limelight center">The 2015 URF AWARDS</h2>
@@ -61,7 +61,7 @@
 
 
 		<div id="slide3">
-			<div class="content">
+			<div class="content container">
 				<div class="row reward">
 					<div class="col-md-12">
 						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/Jax.png" alt="Jax"/>
@@ -75,7 +75,7 @@
 
 
 		<div id="slide4">
-			<div class="content">
+			<div class="content container">
 				<div class="row">
 					<div class="col-md-12">
 						<h2 id="awards" class="limelight center">The 2015 URF AWARDS</h2>
@@ -86,7 +86,7 @@
 
 
 		<div id="slide5">
-			<div class="content">
+			<div class="content container">
 				<div class="row reward">
 					<div class="col-md-12">
 						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/Elise.png" alt="Elise"/>
@@ -100,7 +100,7 @@
 
 
 		<div id="slide6">
-			<div class="content">
+			<div class="content container">
 				<div class="row">
 					<div class="col-md-12">
 						<h2 id="awards" class="limelight center">The 2015 URF AWARDS</h2>
@@ -111,7 +111,7 @@
 
 
 		<div id="slide7">
-			<div class="content">
+			<div class="content container">
 				<div class="row reward">
 					<div class="col-md-12">
 						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/Hecarim.png" alt="Hecarim"/>
