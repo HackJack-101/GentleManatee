@@ -5,9 +5,12 @@ body{
 	background-color: #222 !important;
 }
 
-.center {text-align: center; }
-.content{ margin: 0 auto; width: 960px; }
-.clear { clear: both; }
+.center {
+	text-align: center;
+}
+.clear {
+	clear: both;
+}
 .navbar
 {
 	margin: 0 !important;
@@ -25,14 +28,21 @@ body{
 }
 
 #muteMusic {
-  position: fixed;
-  top: 70px;
-  right: 25px;
-  border-radius: 8px;
-  border: none;
-  height: 2em;
-  font-size: 1.5em;
-  background: white;
+	position: fixed;
+	top: 70px;
+	right: 25px;
+	border-radius: 8px;
+	border: none;
+	padding: 0.2em;
+	font-size: 2em;
+	background: rgba(255, 206, 57, 0.75);
+	box-shadow: 2px 2px 3px rgba(223, 186, 74, 0.44);
+}
+
+#muteMusic .glyphicon
+{
+	line-height: normal;
+	display: block;
 }
 
 .limelight

@@ -4,13 +4,13 @@ function mute()
 	if (intro.paused)
 	{
 		intro.play();
-		document.getElementById("muteMusic").innerHTML = '<span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span>';
+		document.getElementById("muteMusic").innerHTML = '<span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>';
 	}
 	else
 	{
 		intro.pause();
 		intro.currentTime = 0;
-		document.getElementById("muteMusic").innerHTML = '<span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>';
+		document.getElementById("muteMusic").innerHTML = '<span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span>';
 	}
 	return false;
 }
