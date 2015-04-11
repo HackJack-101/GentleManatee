@@ -6,39 +6,48 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/ranking.php';
 
 /* * ************* Champions picked ************** */
 $picks_desc		 = array();
-$picks_asc		 = array();
+$leastPicks		 = array();
 /* * ************* Winrate  ************** */
 $winrates_desc	 = array();
 $winrates_asc	 = array();
 /* * ************* Damage dealt  ************** */
-$dps_desc		 = array();
-$dps_asc		 = array();
+$bestDPS		 = array();
+$worstDPS		 = array();
+/* * ************* Flat deaths  ************** */
+$mostDeaths		 = array();
+$mostAvgDeaths	 = array();
+$leastAvgDeaths	 = array();
 
 foreach ($champions_data as $champion)
 {
 	$picks_desc[$champion->championId]		 = $champion->played;
-	$picks_asc[$champion->championId]		 = $champion->played;
+	$leastPicks[$champion->championId]		 = $champion->played;
 	$winrates_desc[$champion->championId]	 = $champion->wins / $champion->played;
 	$winrates_asc[$champion->championId]	 = $champion->wins / $champion->played;
-	$dps_desc[$champion->championId]		 = $champion->cumulatedTotalDamageDealtToChampions / $champion->played;
-	$dps_asc[$champion->championId]			 = $champion->cumulatedTotalDamageDealtToChampions / $champion->played;
+	$bestDPS[$champion->championId]			 = $champion->cumulatedTotalDamageDealtToChampions / $champion->played;
+	$worstDPS[$champion->championId]		 = $champion->cumulatedTotalDamageDealtToChampions / $champion->played;
+	$mostDeaths[$champion->championId]		 = $champion->cumulatedDeaths;
+	$mostAvgDeaths[$champion->championId]	 = $champion->cumulatedDeaths / $champion->played;
+	$leastAvgDeaths[$champion->championId]	 = $champion->cumulatedDeaths / $champion->played;
 }
 
 /* * ************* Sorting  ************** */
+/* * * descending order ** */
 arsort($picks_desc);
 arsort($winrates_desc);
-arsort($dps_desc);
-asort($picks_asc);
+arsort($bestDPS);
+arsort($mostDeaths);
+arsort($mostAvgDeaths);
+/* * * ascending order ** */
+asort($leastPicks);
 asort($winrates_asc);
-asort($dps_asc);
+asort($worstDPS);
+asort($leastAvgDeaths);
 
 /* * ************* Slicing  ************** */
 $mostPicks	 = array_slice($picks_desc, 0, 10, true);
-$leastPicks	 = array_slice($picks_asc, 0, 1, true);
 $winners	 = array_slice($winrates_desc, 0, 12, true);
 $losers		 = array_slice($winrates_asc, 0, 12, true);
-$bestDPS	 = array_slice($dps_desc, 0, 1, true);
-$worstDPS	 = array_slice($dps_asc, 0, 1, true);
 
 /* * ************* Extrating series and names   ************** */
 $mostPicksNames	 = array();

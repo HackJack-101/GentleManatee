@@ -71,7 +71,7 @@ body{
 .reward .portrait
 {
 	display: inline-block;
-	width: 250px;
+	width: 290px;
 }
 
 .reward .portrait img:hover
@@ -93,13 +93,13 @@ body{
 .reward .portrait .name
 {
 	font-family: 'Oswald', sans-serif;
-	font-size: 1.4em;
+	font-size: 2em;
 }
 
 .reward .description
 {
 	display: inline-block;
-	width: calc(100% - 260px);
+	width: calc(100% - 300px);
 	text-align: right;
 	font-size: 1.1em;
 }
@@ -113,6 +113,7 @@ body{
 
 .reward img
 {
+	margin-right: 0.2em;
 	display: inline-block !important;
 	border-radius: 120px;
 	border: #ffce39 solid 5px;

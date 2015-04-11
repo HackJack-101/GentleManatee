@@ -5,25 +5,35 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/globalstats.php';
 reset($winners);
 reset($losers);
 reset($mostPicks);
+reset($leastPicks);
 reset($mostBans);
 reset($bestDPS);
 reset($worstDPS);
+reset($mostDeaths);
+reset($mostAvgDeaths);
+//reset($leastAvgDeaths);
 
 /* * ************* Get the first key  ************** */
 $winnerKey		 = key($winners);
 $loserKey		 = key($losers);
 $famousKey		 = key($mostPicks);
+$forgottenKey	 = key($leastPicks);
 $bannedKey		 = key($mostBans);
 $bestDealerKey	 = key($bestDPS);
 $worstDealerKey	 = key($worstDPS);
+$deadBodyKey	 = key($mostDeaths);
+$markedManKey	 = key($mostAvgDeaths);
 
 /* * ************* Extract the data  ************** */
 $winner		 = $champions_info->$winnerKey;
 $loser		 = $champions_info->$loserKey;
 $famous		 = $champions_info->$famousKey;
+$forgotten	 = $champions_info->$forgottenKey;
 $banned		 = $champions_info->$bannedKey;
 $bestDealer	 = $champions_info->$bestDealerKey;
 $worstDealer = $champions_info->$worstDealerKey;
+$deadBody	 = $champions_info->$deadBodyKey;
+$markedMan	 = $champions_info->$markedManKey;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -159,21 +169,63 @@ $worstDealer = $champions_info->$worstDealerKey;
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Loser Award</span> for least winrate in URF
+							<span class="awardName">Loser Award</span> for worst winrate in URF
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="row reward">
 					<div class="col-md-12">
 						<div class="portrait">
-							<a href="/champions/<?php echo $loser->key ?>" class="name">
+							<a href="/champions/<?php echo $forgotten->key ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $forgotten->key ?>.png" alt="<?php echo $forgotten->name ?>"/>
+								<?php echo $forgotten->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Forgotten Award</span> for least picked in URF
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12">
+						<div class="portrait">
+							<a href="/champions/<?php echo $worstDealer->key ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $worstDealer->key ?>.png" alt="<?php echo $worstDealer->name ?>"/>
 								<?php echo $worstDealer->name ?>
 							</a>
 						</div>
 						<div class="description">
 							<span class="awardName">Not Hurting a Fly Award</span> for lowest damage dealt by match in URF
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12">
+						<div class="portrait">
+							<a href="/champions/<?php echo $deadBody->key ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $deadBody->key ?>.png" alt="<?php echo $deadBody->name ?>"/>
+								<?php echo $deadBody->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Teemo Award</span> for highest number of death in URF
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12">
+						<div class="portrait">
+							<a href="/champions/<?php echo $markedMan->key ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $markedMan->key ?>.png" alt="<?php echo $markedMan->name ?>"/>
+								<?php echo $markedMan->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Marked Yordle Award</span> for highest number of deaths by match in URF
 						</div>
 					</div>
 				</div>
