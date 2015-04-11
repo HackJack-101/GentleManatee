@@ -56,6 +56,14 @@ body{
 	margin: auto;
 }
 
+div.award
+{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
 .reward
 {
 	color: black;
@@ -68,38 +76,36 @@ body{
 	border-radius: 4px;
 }
 
-.reward .portrait
+div.award .portrait
 {
 	display: inline-block;
-	width: 290px;
 }
 
-.reward .portrait img:hover
+div.award .portrait img:hover
 {
 	opacity: 0.75;
 }
 
-.reward .portrait a:hover
+div.award .portrait a:hover
 {
 	text-decoration: none;
 	opacity: 0.75;
 }
 
-.reward .portrait a:visited
+div.award .portrait a:visited
 {
 	color: #337ab7;
 }
 
-.reward .portrait .name
+div.award .portrait .name
 {
 	font-family: 'Oswald', sans-serif;
 	font-size: 2em;
 }
 
-.reward .description
+div.award .description
 {
-	display: inline-block;
-	width: calc(100% - 300px);
+	flex: 1;
 	text-align: right;
 	font-size: 1.1em;
 }

@@ -89,7 +89,7 @@ $markedMan	 = $champions_info->$markedManKey;
 		<div class="slide" id="slide3">
 			<div class="content container">
 				<div class="row reward">
-					<div class="col-md-12">
+					<div class="col-md-12 award">
 						<div class="portrait">
 							<a href="/champions/<?php echo $winner->key ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $winner->key ?>.png" alt="<?php echo $winner->name ?>"/>
@@ -103,7 +103,7 @@ $markedMan	 = $champions_info->$markedManKey;
 				</div>
 
 				<div class="row reward">
-					<div class="col-md-12">
+					<div class="col-md-12 award">
 						<div class="portrait">
 							<a href="/champions/<?php echo $famous->key ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $famous->key ?>.png" alt="<?php echo $famous->name ?>"/>
@@ -117,7 +117,7 @@ $markedMan	 = $champions_info->$markedManKey;
 				</div>
 
 				<div class="row reward">
-					<div class="col-md-12">
+					<div class="col-md-12 award">
 						<div class="portrait">
 							<a href="/champions/<?php echo $banned->key ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $banned->key ?>.png" alt="<?php echo $banned->name ?>"/>
@@ -131,7 +131,7 @@ $markedMan	 = $champions_info->$markedManKey;
 				</div>
 
 				<div class="row reward">
-					<div class="col-md-12">
+					<div class="col-md-12 award">
 						<div class="portrait">
 							<a href="/champions/<?php echo $bestDealer->key ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $bestDealer->key ?>.png" alt="<?php echo $bestDealer->name ?>"/>
@@ -161,7 +161,7 @@ $markedMan	 = $champions_info->$markedManKey;
 		<div class="slide" id="slide5">
 			<div class="content container">
 				<div class="row reward">
-					<div class="col-md-12">
+					<div class="col-md-12 award">
 						<div class="portrait">
 							<a href="/champions/<?php echo $loser->key ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $loser->key ?>.png" alt="<?php echo $loser->name ?>"/>
@@ -175,7 +175,7 @@ $markedMan	 = $champions_info->$markedManKey;
 				</div>
 
 				<div class="row reward">
-					<div class="col-md-12">
+					<div class="col-md-12 award">
 						<div class="portrait">
 							<a href="/champions/<?php echo $forgotten->key ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $forgotten->key ?>.png" alt="<?php echo $forgotten->name ?>"/>
@@ -189,7 +189,7 @@ $markedMan	 = $champions_info->$markedManKey;
 				</div>
 
 				<div class="row reward">
-					<div class="col-md-12">
+					<div class="col-md-12 award">
 						<div class="portrait">
 							<a href="/champions/<?php echo $worstDealer->key ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $worstDealer->key ?>.png" alt="<?php echo $worstDealer->name ?>"/>
@@ -203,7 +203,7 @@ $markedMan	 = $champions_info->$markedManKey;
 				</div>
 
 				<div class="row reward">
-					<div class="col-md-12">
+					<div class="col-md-12 award">
 						<div class="portrait">
 							<a href="/champions/<?php echo $deadBody->key ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $deadBody->key ?>.png" alt="<?php echo $deadBody->name ?>"/>
@@ -217,7 +217,7 @@ $markedMan	 = $champions_info->$markedManKey;
 				</div>
 
 				<div class="row reward">
-					<div class="col-md-12">
+					<div class="col-md-12 award">
 						<div class="portrait">
 							<a href="/champions/<?php echo $markedMan->key ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $markedMan->key ?>.png" alt="<?php echo $markedMan->name ?>"/>
@@ -247,16 +247,16 @@ $markedMan	 = $champions_info->$markedManKey;
 		<div class="slide" id="slide7">
 			<div class="content container">
 				<div class="row reward">
-					<div class="col-md-12">
+					<div class="col-md-12 award">
 						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/Hecarim.png" alt="Hecarim"/>
 						<span class="description">
 							<a href="/champions/Hecarim">Hecarim</a> as The Bulldozer#1
 						</span>
 					</div>
-					<div class="col-md-12">
+					<div class="col-md-12 award">
 						<h4 class="center">Ex-&aelig;quo</h4>
 					</div>
-					<div class="col-md-12">
+					<div class="col-md-12 award">
 						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/Karma.png" alt="Karma"/>
 						<span class="description">
 							<a href="/champions/Karma">Karma</a> as The Bulldozer#2
