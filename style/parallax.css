@@ -68,10 +68,47 @@ body{
 	border-radius: 4px;
 }
 
+.reward .portrait
+{
+	display: inline-block;
+	width: 250px;
+}
+
+.reward .portrait img:hover
+{
+	opacity: 0.75;
+}
+
+.reward .portrait a:hover
+{
+	text-decoration: none;
+	opacity: 0.75;
+}
+
+.reward .portrait a:visited
+{
+	color: #337ab7;
+}
+
+.reward .portrait .name
+{
+	font-family: 'Oswald', sans-serif;
+	font-size: 1.4em;
+}
+
 .reward .description
 {
 	display: inline-block;
+	width: calc(100% - 260px);
 	text-align: right;
+	font-size: 1.1em;
+}
+
+.awardName
+{
+	font-family: 'Lobster', cursive;
+	font-size: 2em;
+	margin-right: 0.5em;
 }
 
 .reward img
@@ -80,6 +117,7 @@ body{
 	border-radius: 120px;
 	border: #ffce39 solid 5px;
 }
+
 
 #slide1{
 	background-image:url('/images/nurfbanner.jpg');
@@ -93,34 +131,49 @@ body{
 	text-align: center;
 }
 
-#slide2, #slide4, #slide6{
-	background-color: #fff;
+.slideDiviser
+{
+	background-color: #fff !important;
 	color: #333333;
 	min-height: 20vh;
 	padding: 3em 0;	
 	margin: auto;
 }
 
-#slide3{
-	background: url('/images/slide3.jpg') 50% 0 no-repeat fixed;
+.slide
+{
 	color: #fff;
+	min-height: 900px;
 	height: 100vh;
 	padding: 10vh 0 0 0;	
+}
+
+#slide3{
+	background: url('/images/slide3.jpg') 50% 0 no-repeat fixed;
 	background-size: cover;
 }
 
 #slide5{
 	background: url('/images/slide5.jpg') 50% 0 no-repeat fixed;
-	height: 100vh;
-	padding: 10vh 0 0 0;	
-	color: #fff;
 	background-size: cover;
 }
 
 #slide7{
-	background: url('/images/cs_bg_champions.png') 50% 0 no-repeat fixed;
-	height: 100vh;
-	padding: 10vh 0 0 0;	
-	color: #fff;
+	background: url('/images/urfPostering.jpg') 50% 0 no-repeat fixed;
+	background-size: cover;
+}
+
+#slide9{
+	background: url('/images/urfblack.jpg') 50% 0 no-repeat fixed;
+	background-size: cover;
+}
+
+#slide11{
+	background: url('/images/UrfOriginalSkin.jpg') 50% 0 no-repeat fixed;
+	background-size: cover;
+}
+
+#slide13{
+	background: url('/images/Namitee.jpg') 50% 0 no-repeat fixed;
 	background-size: cover;
 }
