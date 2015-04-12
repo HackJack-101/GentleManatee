@@ -61,7 +61,7 @@ div.award
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	align-items: center;
+	align-items: baseline;
 }
 
 .reward
@@ -108,6 +108,26 @@ div.award .description
 	flex: 1;
 	text-align: right;
 	font-size: 1.1em;
+}
+
+div.award .quote
+{
+	font-style: italic;
+	margin-right: 1em;
+	padding-right: 0.5em;
+	/*border-right: 5px solid rgb(195, 195, 195);*/
+}
+
+div.award .quote::after
+{
+	content: ' \00bb';
+	font-size: 1.5em;
+}
+
+div.award .quote::before
+{
+	content: '\00ab ';
+	font-size: 1.5em;
 }
 
 .awardName

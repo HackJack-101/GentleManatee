@@ -112,6 +112,7 @@ $markedMan	 = $champions_info->$markedManKey;
 						</div>
 						<div class="description">
 							<span class="awardName">Famous Award</span> for most picked in URF
+							<div class="quote">People love me</div>
 						</div>
 					</div>
 				</div>
@@ -184,6 +185,7 @@ $markedMan	 = $champions_info->$markedManKey;
 						</div>
 						<div class="description">
 							<span class="awardName">Forgotten Award</span> for least picked in URF
+							<div class="quote">Come play with me</div>
 						</div>
 					</div>
 				</div>
