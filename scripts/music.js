@@ -17,7 +17,7 @@ function mute()
 
 window.addEventListener("load", function ()
 {
-//	var intro = document.getElementById("introMusic");
-	//intro.play();
+	var intro = document.getElementById("introMusic");
+	intro.volume = 0.5;
 }
 , true);
