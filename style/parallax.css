@@ -91,6 +91,10 @@ div.award .portrait a:hover
 	text-decoration: none;
 	opacity: 0.75;
 }
+div.award .portrait a:active
+{
+	text-decoration: none;
+}
 
 div.award .portrait a:visited
 {

@@ -21,6 +21,11 @@
 	background-color: #242424;
 }	
 
+
+.center {
+	text-align: center;
+}
+
 progress {
 	width: 95%;
 	margin: auto;
@@ -54,6 +59,15 @@ hr
 {
 	border-top: #B1B1B1 1px solid;
 }
+div.profile
+{
+	padding: 1em 0; 
+}
+
+.right
+{
+	text-align: right;
+}
 
 .navbar
 {
@@ -62,6 +76,10 @@ hr
 }
 
 a.champions:hover, a.labelchart:hover, a.thumbnail:hover
+{
+	text-decoration: none;
+}
+a.champions:active, a.labelchart:active, a.thumbnail:active
 {
 	text-decoration: none;
 }

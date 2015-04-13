@@ -283,7 +283,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/globalstats.php';
 		<div class="col-md-2 col-xs-3">
 			<a class="thumbnail" href="/champions/<?php echo $champ_info->name; ?>">
 				<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $champ_info->key; ?>.png" alt="<?php echo $champ_info->name; ?>" class="portrait"/>
-				<div class="caption" style="text-align: center">
+				<div class="caption center">
 					<?php echo $champ_info->name; ?><br/>
 					<b><?php echo round($value * 100, 2); ?>%</b>
 				</div>
