@@ -21,6 +21,33 @@
 	background-color: #242424;
 }	
 
+#spells
+{
+	display: flex;
+    flex-wrap: wrap;
+	justify-content: center;
+	
+}
+
+.spell
+{
+	position: relative;
+	margin: 2px;
+}
+
+.spellPercentage
+{
+	text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+	color: white;
+	font-size: 1.1em;
+	font-weight: 600;
+	position: absolute;
+	bottom: 10%;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	background: rgba(0,0,0,0.5);
+}
 
 .center {
 	text-align: center;

@@ -91,7 +91,7 @@ $markedMan	 = $champions_info->$markedManKey;
 				<div class="row reward">
 					<div class="col-md-12 award">
 						<div class="portrait">
-							<a href="/champions/<?php echo $winner->key ?>" class="name">
+							<a href="/champions/<?php echo $winner->name ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $winner->key ?>.png" alt="<?php echo $winner->name ?>"/>
 								<?php echo $winner->name ?>
 							</a>
@@ -105,7 +105,7 @@ $markedMan	 = $champions_info->$markedManKey;
 				<div class="row reward">
 					<div class="col-md-12 award">
 						<div class="portrait">
-							<a href="/champions/<?php echo $famous->key ?>" class="name">
+							<a href="/champions/<?php echo $famous->name ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $famous->key ?>.png" alt="<?php echo $famous->name ?>"/>
 								<?php echo $famous->name ?>
 							</a>
@@ -120,7 +120,7 @@ $markedMan	 = $champions_info->$markedManKey;
 				<div class="row reward">
 					<div class="col-md-12 award">
 						<div class="portrait">
-							<a href="/champions/<?php echo $banned->key ?>" class="name">
+							<a href="/champions/<?php echo $banned->name ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $banned->key ?>.png" alt="<?php echo $banned->name ?>"/>
 								<?php echo $banned->name ?>
 							</a>
@@ -134,7 +134,7 @@ $markedMan	 = $champions_info->$markedManKey;
 				<div class="row reward">
 					<div class="col-md-12 award">
 						<div class="portrait">
-							<a href="/champions/<?php echo $bestDealer->key ?>" class="name">
+							<a href="/champions/<?php echo $bestDealer->name ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $bestDealer->key ?>.png" alt="<?php echo $bestDealer->name ?>"/>
 								<?php echo $bestDealer->name ?>
 							</a>
@@ -164,7 +164,7 @@ $markedMan	 = $champions_info->$markedManKey;
 				<div class="row reward">
 					<div class="col-md-12 award">
 						<div class="portrait">
-							<a href="/champions/<?php echo $loser->key ?>" class="name">
+							<a href="/champions/<?php echo $loser->name ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $loser->key ?>.png" alt="<?php echo $loser->name ?>"/>
 								<?php echo $loser->name ?>
 							</a>
@@ -178,7 +178,7 @@ $markedMan	 = $champions_info->$markedManKey;
 				<div class="row reward">
 					<div class="col-md-12 award">
 						<div class="portrait">
-							<a href="/champions/<?php echo $forgotten->key ?>" class="name">
+							<a href="/champions/<?php echo $forgotten->name ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $forgotten->key ?>.png" alt="<?php echo $forgotten->name ?>"/>
 								<?php echo $forgotten->name ?>
 							</a>
@@ -193,7 +193,7 @@ $markedMan	 = $champions_info->$markedManKey;
 				<div class="row reward">
 					<div class="col-md-12 award">
 						<div class="portrait">
-							<a href="/champions/<?php echo $worstDealer->key ?>" class="name">
+							<a href="/champions/<?php echo $worstDealer->name ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $worstDealer->key ?>.png" alt="<?php echo $worstDealer->name ?>"/>
 								<?php echo $worstDealer->name ?>
 							</a>
@@ -207,7 +207,7 @@ $markedMan	 = $champions_info->$markedManKey;
 				<div class="row reward">
 					<div class="col-md-12 award">
 						<div class="portrait">
-							<a href="/champions/<?php echo $deadBody->key ?>" class="name">
+							<a href="/champions/<?php echo $deadBody->name ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $deadBody->key ?>.png" alt="<?php echo $deadBody->name ?>"/>
 								<?php echo $deadBody->name ?>
 							</a>
@@ -221,7 +221,7 @@ $markedMan	 = $champions_info->$markedManKey;
 				<div class="row reward">
 					<div class="col-md-12 award">
 						<div class="portrait">
-							<a href="/champions/<?php echo $markedMan->key ?>" class="name">
+							<a href="/champions/<?php echo $markedMan->name ?>" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $markedMan->key ?>.png" alt="<?php echo $markedMan->name ?>"/>
 								<?php echo $markedMan->name ?>
 							</a>

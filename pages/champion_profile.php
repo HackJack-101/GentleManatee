@@ -1,12 +1,9 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/config/server.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/config/api_key.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/ranking.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/champions.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/bans.php';
-
 if (empty($_GET['name']))
 	die('NURF');
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/champions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config/debug.php';
 
 $id = 0;
 foreach ($champions_info as $key => $value)
@@ -15,13 +12,26 @@ foreach ($champions_info as $key => $value)
 		$id = $key;
 }
 
-if ($key == 0)
+if ($id == 0)
 	die('NURF');
 
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/bans.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/spells.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/ranking.php';
+
+
+$spells		 = array();
+$spellsTotal = 0;
+foreach ($champions_spells->$id as $key => $value)
+{
+	$spells[$key] = $value;
+	$spellsTotal += $value;
+}
+arsort($spells);
+
 $html_title = $champions_info->$id->name;
 require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
-
 ?>
 <script type="text/javascript">
 	$(function () {
@@ -53,18 +63,33 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 		<div>
 			<h3 class="center">Spells</h3>
 		</div>
+		<div class="row">
+			<div class="col-xs-12" id="spells">
+				<?php
+				foreach ($spells as $key => $value)
+				{
+					?>
+					<div class="spell">
+						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/spell/<?php echo($spells_info->$key->key) ?>.png" alt="<?php echo $spells_info->$key->name; ?>" title="<?php echo $spells_info->$key->name; ?>"/>
+						<span class="spellPercentage"><?php echo round($value / $spellsTotal * 100, 2); ?>%</span>
+					</div>
+					<?php
+				}
+				?>
+			</div>
+		</div>
 	</div>
 	<div class="col-md-8 profileStatistics">
 		<div class="row">
 			<div class="col-xs-8">Popularity</div>
 			<div class="col-xs-4 right"><?php echo round($champions_data->$id->played / $matchs_data->played * 100, 1) ?>%</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col-xs-8">Winrate</div>
 			<div class="col-xs-4 right"><?php echo round($champions_data->$id->wins / $champions_data->$id->played * 100, 2); ?>%</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col-xs-8">Banned</div>
 			<div class="col-xs-4 right"><?php echo round($bans[$id] / $matchs_data->played * 100, 1); ?>%</div>

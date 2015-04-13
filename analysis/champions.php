@@ -1,7 +1,6 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config/api_key.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/config/debug.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/objects/Stats.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config/server.php';
 
