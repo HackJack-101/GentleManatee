@@ -19,6 +19,7 @@ if ($id == 0)
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/bans.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/spells.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/items.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/lanes.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/ranking.php';
 
 
@@ -157,6 +158,28 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 		<div class="row">
 			<div class="col-xs-8">Banned</div>
 			<div class="col-xs-4 right"><?php echo round($bans[$id] / $matchs_data->played * 100, 1); ?>%</div>
+		</div>
+
+		<h2 class="center">Lanes</h2>
+		
+		<div class="row">
+			<div class="col-xs-8">Top</div>
+			<div class="col-xs-4 right"><?php echo round($lanes_data->$id->top / $lanes_data->$id->total * 100, 1) ?>%</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-8">Jungle</div>
+			<div class="col-xs-4 right"><?php echo round($lanes_data->$id->jungle / $lanes_data->$id->total * 100, 1) ?>%</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-8">Mid</div>
+			<div class="col-xs-4 right"><?php echo round($lanes_data->$id->mid / $lanes_data->$id->total * 100, 1) ?>%</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-8">Bot</div>
+			<div class="col-xs-4 right"><?php echo round($lanes_data->$id->bottom / $lanes_data->$id->total * 100, 1) ?>%</div>
 		</div>
 
 		<h2 class="center">Average statistics</h2>

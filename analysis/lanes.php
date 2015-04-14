@@ -31,5 +31,4 @@ if (!file_exists($lanes_cache_server))
 
 $lanes_data = file_get_contents($lanes_cache_server);
 $lanes_data = json_decode($lanes_data);
-print_r($lanes_data);
 ?>
