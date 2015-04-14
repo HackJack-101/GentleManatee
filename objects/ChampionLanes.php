@@ -8,9 +8,9 @@ class ChampionLanes
 		$this->id = $id;
 	}
 
-	public function setLanes($level, $value)
+	public function setLanes($lane, $value)
 	{
-		switch ($level)
+		switch ($lane)
 		{
 			case 4:
 				$this->jungle	 = $value;
