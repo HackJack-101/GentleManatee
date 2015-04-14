@@ -21,7 +21,7 @@
 	background-color: #242424;
 }	
 
-#spells
+#spells, .items
 {
 	display: flex;
     flex-wrap: wrap;
@@ -29,13 +29,19 @@
 	
 }
 
-.spell
+.expandItems
+{
+	cursor: pointer;
+}
+
+.spell, .item
 {
 	position: relative;
 	margin: 2px;
 }
 
-.spellPercentage
+
+.spellPercentage, .itemPercentage
 {
 	text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
 	color: white;

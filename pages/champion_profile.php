@@ -18,6 +18,7 @@ if ($id == 0)
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/bans.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/spells.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/items.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/ranking.php';
 
 
@@ -29,6 +30,44 @@ foreach ($champions_spells->$id as $key => $value)
 	$spellsTotal += $value;
 }
 arsort($spells);
+
+$items		 = array();
+$itemsTotal	 = 0;
+foreach ($champions_items->$id as $key => $value)
+{
+	if (!empty($items_info->$key))
+	{
+		if ($items_info->$key->boots > 0)
+		{
+			if (empty($items['Boots']))
+				$items['Boots']			 = array();
+			$items['Boots'][$key]	 = $value;
+		}
+		elseif ($items_info->$key->trinket > 0)
+		{
+			if (empty($items['Trinkets']))
+				$items['Trinkets']		 = array();
+			$items['Trinkets'][$key] = $value;
+		}
+		elseif ($items_info->$key->consumable > 0)
+		{
+			if (empty($items['Consumables']))
+				$items['Consumables']		 = array();
+			$items['Consumables'][$key]	 = $value;
+		}
+		else
+		{
+			if (empty($items[$items_info->$key->depth]))
+				$items[$items_info->$key->depth]		 = array();
+			$items[$items_info->$key->depth][$key]	 = $value;
+		}
+
+		$itemsTotal += $value;
+	}
+}
+krsort($items);
+foreach ($items as &$item)
+	arsort($item);
 
 $html_title = $champions_info->$id->name;
 require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
@@ -77,6 +116,34 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 				}
 				?>
 			</div>
+		</div>
+		<hr/>
+		<div>
+			<h3 class="center">Items</h3>
+		</div>
+		<div class="row">
+			<?php
+			foreach ($items as $depth => $itemGroup)
+			{
+				?>
+				<h4 class="center expandItems" data-target="items<?php echo $depth ?>"><?php echo is_numeric($depth) ? 'Items Tier ' . $depth : $depth ?></h4>
+				<div class="col-xs-12 items" id="items<?php echo $depth ?>">
+					<?php
+					foreach ($itemGroup as $key => $value)
+					{
+						?>
+						<div class="item">
+							<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/item/<?php echo($items_info->$key->key) ?>.png" alt="<?php echo $items_info->$key->name; ?>" title="<?php echo $items_info->$key->name; ?>"/>
+							<span class="itemPercentage"><?php echo round($value / $itemsTotal * 100, 2); ?>%</span>
+						</div>
+						<?php
+					}
+					?>
+				</div>
+				<div class="col-xs-12"><br/></div>
+				<?php
+			}
+			?>
 		</div>
 	</div>
 	<div class="col-md-8 profileStatistics">

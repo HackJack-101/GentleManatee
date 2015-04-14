@@ -32,6 +32,7 @@ if (empty($html_title))
 
 		<script type="text/javascript" src="/scripts/champions.js"></script> 
 		<script type="text/javascript" src="/scripts/charts.js"></script> 
+		<script type="text/javascript" src="/scripts/items.js"></script> 
 		<script type="text/javascript">
 			$(document).ready(function ()
 			{
