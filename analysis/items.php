@@ -49,7 +49,7 @@ if (!file_exists($items_cache_api))
 	$items = array();
 	foreach ($content->data as $item)
 	{
-		$items[$item->id]				 = array(
+		$items[$item->id]			 = array(
 			"name"		 => $item->name,
 			"key"		 => $item->id,
 			"depth"		 => (!empty($item->depth)) ? $item->depth : 1,

@@ -6,13 +6,13 @@ $champions_ranking_cache_server = $_SERVER['DOCUMENT_ROOT'] . '/cache/server/cha
 
 if (!file_exists($champions_ranking_cache_server))
 {
-	$url_champions = $server_url . 'ChampionPlayerRanks';
-	$curl = curl_init();
+	$url_champions	 = $server_url . 'ChampionPlayerRanks';
+	$curl			 = curl_init();
 	curl_setopt($curl, CURLOPT_URL, $url_champions);
 	curl_setopt($curl, CURLOPT_TIMEOUT, 10);
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-	$content = curl_exec($curl);
-	$content = json_decode($content);
+	$content		 = curl_exec($curl);
+	$content		 = json_decode($content);
 
 	$champions = array();
 	foreach ($content->data as $champ)
@@ -28,7 +28,6 @@ if (!file_exists($champions_ranking_cache_server))
 	file_put_contents($champions_ranking_cache_server, json_encode($champions));
 }
 
-$champions_ranking = file_get_contents($champions_ranking_cache_server);
-$champions_ranking = json_decode($champions_ranking);
-
+$champions_ranking	 = file_get_contents($champions_ranking_cache_server);
+$champions_ranking	 = json_decode($champions_ranking);
 ?>
