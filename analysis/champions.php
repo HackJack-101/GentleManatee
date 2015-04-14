@@ -35,7 +35,7 @@ $champions_data = json_decode($champions_data);
 
 if (!file_exists($champions_cache_api))
 {
-	$url_champions = 'https://global.api.pvp.net/api/lol/static-data/' . $region . '/v1.2/champion?api_key=' . $apiKey;
+	$url_champions = 'https://global.api.pvp.net/api/lol/static-data/' . $region . '/v1.2/champion?version=5.6.1&api_key=' . $apiKey;
 
 	$curl = curl_init();
 	curl_setopt($curl, CURLOPT_URL, $url_champions);

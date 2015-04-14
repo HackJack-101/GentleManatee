@@ -36,7 +36,7 @@ $champions_spells	 = json_decode($champions_spells);
 
 if (!file_exists($spells_cache_api))
 {
-	$url_spells = 'https://global.api.pvp.net/api/lol/static-data/' . $region . '/v1.2/summoner-spell?api_key=' . $apiKey;
+	$url_spells = 'https://global.api.pvp.net/api/lol/static-data/' . $region . '/v1.2/summoner-spell?version=5.6.1&api_key=' . $apiKey;
 
 	$curl	 = curl_init();
 	curl_setopt($curl, CURLOPT_URL, $url_spells);
