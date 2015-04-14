@@ -32,4 +32,5 @@ if (!file_exists($teams_cache_server))
 
 $teams_data = file_get_contents($teams_cache_server);
 $teams_data = json_decode($teams_data);
+
 ?>

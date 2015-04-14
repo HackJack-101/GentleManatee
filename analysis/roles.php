@@ -31,4 +31,5 @@ if (!file_exists($roles_cache_server))
 
 $roles_data = file_get_contents($roles_cache_server);
 $roles_data = json_decode($roles_data);
+
 ?>

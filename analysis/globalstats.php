@@ -83,3 +83,4 @@ $all_ranking->platinum	 = round($all_ranking->platinum / $players * 100, 2);
 $all_ranking->diamond	 = round($all_ranking->diamond / $players * 100, 2);
 $all_ranking->master	 = round($all_ranking->master / $players * 100, 2);
 $all_ranking->challenger = round($all_ranking->challenger / $players * 100, 2);
+?>

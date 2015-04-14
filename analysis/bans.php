@@ -46,4 +46,5 @@ foreach ($mostBans as $key => $value)
 	$mostBansSeries[2][] = round($champ_data->banAtSecondTurn / $matchs_data->played * 100, 1);
 	$mostBansSeries[1][] = round($champ_data->banAtFirstTurn / $matchs_data->played * 100, 1);
 }
+
 ?>

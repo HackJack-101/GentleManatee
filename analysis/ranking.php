@@ -30,3 +30,5 @@ if (!file_exists($champions_ranking_cache_server))
 
 $champions_ranking = file_get_contents($champions_ranking_cache_server);
 $champions_ranking = json_decode($champions_ranking);
+
+?>
