@@ -20,6 +20,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/bans.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/spells.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/items.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/lanes.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/roles.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/ranking.php';
 
 
@@ -180,6 +181,33 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 		<div class="row">
 			<div class="col-xs-8">Bot</div>
 			<div class="col-xs-4 right"><?php echo round($lanes_data->$id->bottom / $lanes_data->$id->total * 100, 1) ?>%</div>
+		</div>
+
+		<h2 class="center">Roles</h2>
+		
+		<div class="row">
+			<div class="col-xs-8">Duo Support</div>
+			<div class="col-xs-4 right"><?php echo round($roles_data->$id->duoSupport / $roles_data->$id->total * 100, 1) ?>%</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-8">Duo Carry</div>
+			<div class="col-xs-4 right"><?php echo round($roles_data->$id->duoCarry / $roles_data->$id->total * 100, 1) ?>%</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-8">Duo</div>
+			<div class="col-xs-4 right"><?php echo round($roles_data->$id->duo / $roles_data->$id->total * 100, 1) ?>%</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-8">Solo</div>
+			<div class="col-xs-4 right"><?php echo round($roles_data->$id->solo / $roles_data->$id->total * 100, 1) ?>%</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-8">None</div>
+			<div class="col-xs-4 right"><?php echo round($roles_data->$id->none / $roles_data->$id->total * 100, 1) ?>%</div>
 		</div>
 
 		<h2 class="center">Average statistics</h2>
