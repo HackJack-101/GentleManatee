@@ -21,7 +21,7 @@ if (!file_exists($lanes_cache_server))
 		{
 			if (empty($champions[$champ->championId]))
 				$champions[$champ->championId] = new ChampionLanes($champ->championId);
-			$champions[$champ->championId]->setLanes($champ->laneId, $champ->value);
+			$champions[$champ->championId]->setLane($champ->laneId, $champ->value);
 		}
 	}
 	ksort($champions);

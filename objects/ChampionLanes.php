@@ -8,7 +8,7 @@ class ChampionLanes
 		$this->id = $id;
 	}
 
-	public function setLanes($lane, $value)
+	public function setLane($lane, $value)
 	{
 		switch ($lane)
 		{
