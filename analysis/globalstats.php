@@ -1,8 +1,10 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/champions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/items.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/bans.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/ranking.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/teams.php';
 
 /* * ************* Champions picked ************** */
 $picks_desc		 = array();
@@ -13,8 +15,15 @@ $winrates_asc	 = array();
 /* * ************* Damage dealt  ************** */
 $bestDPS		 = array();
 $worstDPS		 = array();
+/* * ************* Damage taken  ************** */
+$bestTanking	 = array();
+/* * ************* Inhib down  ************** */
+$inhib			 = array();
+/* * ************* Heal  ************** */
+$heal			 = array();
 /* * ************* Flat deaths  ************** */
 $mostDeaths		 = array();
+/* * ************* Average deaths  ************** */
 $mostAvgDeaths	 = array();
 $leastAvgDeaths	 = array();
 
@@ -29,6 +38,20 @@ foreach ($champions_data as $champion)
 	$mostDeaths[$champion->championId]		 = $champion->cumulatedDeaths;
 	$mostAvgDeaths[$champion->championId]	 = $champion->cumulatedDeaths / $champion->played;
 	$leastAvgDeaths[$champion->championId]	 = $champion->cumulatedDeaths / $champion->played;
+	$bestTanking[$champion->championId]		 = $champion->cumulatedTotalDamageTaken / $champion->played;
+	$inhib[$champion->championId]			 = $champion->maxInhibitorKills;
+	$heal[$champion->championId]			 = 0;
+	if ($champion->cumulatedUnitsHealed / $champion->played >= 2) /*	 * * Avoiding self healers like Sion or Zac ** */
+		$heal[$champion->championId]			 = $champion->cumulatedTotalHeal / $champion->played;
+}
+
+$lucidityBought = 0;
+foreach ($champions_items as $item)
+{
+	$lucidityIDs = array(3158, 3275, 3276, 3277, 3278, 3279);
+	foreach ($lucidityIDs as $id)
+		if (!empty($item->$id))
+			$lucidityBought += $item->$id;
 }
 
 /* * ************* Sorting  ************** */
@@ -36,6 +59,9 @@ foreach ($champions_data as $champion)
 arsort($picks_desc);
 arsort($winrates_desc);
 arsort($bestDPS);
+arsort($bestTanking);
+arsort($inhib);
+arsort($heal);
 arsort($mostDeaths);
 arsort($mostAvgDeaths);
 /* * * ascending order ** */

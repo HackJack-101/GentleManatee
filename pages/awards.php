@@ -7,33 +7,39 @@ reset($losers);
 reset($mostPicks);
 reset($leastPicks);
 reset($mostBans);
+reset($bestTanking);
 reset($bestDPS);
 reset($worstDPS);
 reset($mostDeaths);
 reset($mostAvgDeaths);
-//reset($leastAvgDeaths);
-
+reset($inhib);
+reset($heal);
 /* * ************* Get the first key  ************** */
 $winnerKey		 = key($winners);
 $loserKey		 = key($losers);
 $famousKey		 = key($mostPicks);
 $forgottenKey	 = key($leastPicks);
 $bannedKey		 = key($mostBans);
+$bestTankKey	 = key($bestTanking);
 $bestDealerKey	 = key($bestDPS);
 $worstDealerKey	 = key($worstDPS);
 $deadBodyKey	 = key($mostDeaths);
 $markedManKey	 = key($mostAvgDeaths);
-
+$inhibManKey	 = key($inhib);
+$healerKey		 = key($heal);
 /* * ************* Extract the data  ************** */
-$winner		 = $champions_info->$winnerKey;
-$loser		 = $champions_info->$loserKey;
-$famous		 = $champions_info->$famousKey;
-$forgotten	 = $champions_info->$forgottenKey;
-$banned		 = $champions_info->$bannedKey;
-$bestDealer	 = $champions_info->$bestDealerKey;
-$worstDealer = $champions_info->$worstDealerKey;
-$deadBody	 = $champions_info->$deadBodyKey;
-$markedMan	 = $champions_info->$markedManKey;
+$winner			 = $champions_info->$winnerKey;
+$loser			 = $champions_info->$loserKey;
+$famous			 = $champions_info->$famousKey;
+$forgotten		 = $champions_info->$forgottenKey;
+$banned			 = $champions_info->$bannedKey;
+$bestTank		 = $champions_info->$bestTankKey;
+$bestDealer		 = $champions_info->$bestDealerKey;
+$worstDealer	 = $champions_info->$worstDealerKey;
+$deadBody		 = $champions_info->$deadBodyKey;
+$markedMan		 = $champions_info->$markedManKey;
+$inhibMan		 = $champions_info->$inhibManKey;
+$healer			 = $champions_info->$healerKey;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -185,7 +191,7 @@ $markedMan	 = $champions_info->$markedManKey;
 						</div>
 						<div class="description">
 							<span class="awardName">Forgotten Award</span> for least picked in URF
-							<div class="quote">Come play with me</div>
+							<div class="quote">Come play with me, please…</div>
 						</div>
 					</div>
 				</div>
@@ -228,6 +234,7 @@ $markedMan	 = $champions_info->$markedManKey;
 						</div>
 						<div class="description">
 							<span class="awardName">Marked Yordle Award</span> for highest number of deaths per match in URF
+							<div class="quote">Stop focus me!</div>
 						</div>
 					</div>
 				</div>
@@ -239,7 +246,7 @@ $markedMan	 = $champions_info->$markedManKey;
 			<div class="content container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 id="awards" class="limelight center">The 2015 URF AWARDS</h2>
+						<h2 id="awards" class="limelight center">The BULLDOZER Category</h2>
 					</div>
 				</div>
 			</div> 
@@ -248,21 +255,33 @@ $markedMan	 = $champions_info->$markedManKey;
 
 		<div class="slide" id="slide7">
 			<div class="content container">
+
 				<div class="row reward">
 					<div class="col-md-12 award">
-						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/Hecarim.png" alt="Hecarim"/>
-						<span class="description">
-							<a href="/champions/Hecarim">Hecarim</a> as The Bulldozer#1
-						</span>
+						<div class="portrait">
+							<a href="/champions/<?php echo $bestTank->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $bestTank->key ?>.png" alt="<?php echo $bestTank->name ?>"/>
+								<?php echo $bestTank->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Tank Award</span> for highest damage taken per match in URF
+							<div class="quote">MUUUNNNNDOOOOO!</div>
+						</div>
 					</div>
+				</div>
+
+				<div class="row reward">
 					<div class="col-md-12 award">
-						<h4 class="center">Ex-&aelig;quo</h4>
-					</div>
-					<div class="col-md-12 award">
-						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/Karma.png" alt="Karma"/>
-						<span class="description">
-							<a href="/champions/Karma">Karma</a> as The Bulldozer#2
-						</span>
+						<div class="portrait">
+							<a href="/champions/<?php echo $inhibMan->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $inhibMan->key ?>.png" alt="<?php echo $inhibMan->name ?>"/>
+								<?php echo $inhibMan->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Hulk Award</span> for highest inhibitor kills during a match in URF
+						</div>
 					</div>
 				</div>
 			</div> 
@@ -273,7 +292,7 @@ $markedMan	 = $champions_info->$markedManKey;
 			<div class="content container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 id="awards" class="limelight center">The 2015 URF AWARDS</h2>
+						<h2 id="awards" class="limelight center">The SUPPORT Category</h2>
 					</div>
 				</div>
 			</div> 
@@ -282,14 +301,22 @@ $markedMan	 = $champions_info->$markedManKey;
 
 		<div class="slide" id="slide9">
 			<div class="content container">
+
 				<div class="row reward">
-					<div class="col-md-12">
-						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/Hecarim.png" alt="Hecarim"/>
-						<span class="description">
-							<a href="/champions/Hecarim">Hecarim</a> as The Example
-						</span>
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $healer->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $healer->key ?>.png" alt="<?php echo $healer->name ?>"/>
+								<?php echo $healer->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Red Cross Award</span> for highest heal dealt per match in URF
+							<div class="quote">Call 911! Didou didou didou!</div>
+						</div>
 					</div>
 				</div>
+
 			</div> 
 		</div> 
 
@@ -297,7 +324,7 @@ $markedMan	 = $champions_info->$markedManKey;
 			<div class="content container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 id="awards" class="limelight center">The 2015 URF AWARDS</h2>
+						<h2 id="awards" class="limelight center">The USELESS Category</h2>
 					</div>
 				</div>
 			</div> 
@@ -307,11 +334,18 @@ $markedMan	 = $champions_info->$markedManKey;
 		<div class="slide" id="slide11">
 			<div class="content container">
 				<div class="row reward">
-					<div class="col-md-12">
-						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/Hecarim.png" alt="Hecarim"/>
-						<span class="description">
-							<a href="/champions/Hecarim">Hecarim</a> as The Example
-						</span>
+
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $healer->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/item/3158.png" alt="Ionian Boots of Lucidity"/>
+								Ionian Boots of Lucidity
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Boots of Uselessness Award</span> for being bought <?php echo $lucidityBought ?> times in <?php echo $teams_data->red->wins + $teams_data->blue->wins; ?> URF matchs
+							<div class="quote">Cooldown Reduction, OVER 9000!</div>
+						</div>
 					</div>
 				</div>
 			</div> 
@@ -321,7 +355,7 @@ $markedMan	 = $champions_info->$markedManKey;
 			<div class="content container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 id="awards" class="limelight center">The 2015 URF AWARDS</h2>
+						<h2 id="awards" class="limelight center">Special Thanks</h2>
 					</div>
 				</div>
 			</div> 
@@ -332,10 +366,7 @@ $markedMan	 = $champions_info->$markedManKey;
 			<div class="content container">
 				<div class="row reward">
 					<div class="col-md-12">
-						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/Hecarim.png" alt="Hecarim"/>
-						<span class="description">
-							<a href="/champions/Hecarim">Hecarim</a> as The Example
-						</span>
+						It's not over buddies ;)
 					</div>
 				</div>
 			</div> 

@@ -1,6 +1,5 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/teams.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/globalstats.php';
 
 ?>
