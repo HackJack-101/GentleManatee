@@ -49,7 +49,7 @@ if (!file_exists($items_cache_api))
 	$items = array();
 	foreach ($content->data as $item)
 	{
-		$items[$item->id] = array(
+		$items[$item->id]				 = array(
 			"name"		 => $item->name,
 			"key"		 => $item->id,
 			"depth"		 => (!empty($item->depth)) ? $item->depth : 1,
@@ -57,6 +57,8 @@ if (!file_exists($items_cache_api))
 			"trinket"	 => (!empty($item->tags)) ? in_array("Trinket", $item->tags) : 0,
 			"consumable" => (!empty($item->tags)) ? in_array("Consumable", $item->tags) : 0
 		);
+		if (!empty($item->group) && (substr($item->group, 0, 5) == "Boots"))
+			$items[$item->id]["boots"]	 = true;
 	}
 	file_put_contents($items_cache_api, json_encode($items));
 }

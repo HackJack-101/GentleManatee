@@ -61,8 +61,6 @@ foreach ($champions_items->$id as $key => $value)
 				$items[$items_info->$key->depth]		 = array();
 			$items[$items_info->$key->depth][$key]	 = $value;
 		}
-
-		$itemsTotal += $value;
 	}
 }
 krsort($items);
@@ -110,7 +108,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 					?>
 					<div class="spell">
 						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/spell/<?php echo($spells_info->$key->key) ?>.png" alt="<?php echo $spells_info->$key->name; ?>" title="<?php echo $spells_info->$key->name; ?>"/>
-						<span class="spellPercentage"><?php echo round($value / $spellsTotal * 100, 2); ?>%</span>
+						<span class="spellPercentage"><?php echo round($value / ($spellsTotal / 2) * 100, 2); ?>%</span>
 					</div>
 					<?php
 				}
@@ -126,21 +124,20 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 			foreach ($items as $depth => $itemGroup)
 			{
 				?>
-				<h4 class="center expandItems" data-target="items<?php echo $depth ?>"><?php echo is_numeric($depth) ? 'Items Tier ' . $depth : $depth ?></h4>
+				<div class="col-xs-12 center expandItems" data-target="items<?php echo $depth ?>"><?php echo is_numeric($depth) ? 'Items Tier ' . $depth : $depth ?></div>
 				<div class="col-xs-12 items" id="items<?php echo $depth ?>">
 					<?php
 					foreach ($itemGroup as $key => $value)
 					{
 						?>
 						<div class="item">
-							<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/item/<?php echo($items_info->$key->key) ?>.png" alt="<?php echo $items_info->$key->name; ?>" title="<?php echo $items_info->$key->name; ?>"/>
-							<span class="itemPercentage"><?php echo round($value / $itemsTotal * 100, 2); ?>%</span>
+							<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/item/<?php echo($items_info->$key->key) ?>.png" alt="<?php echo $items_info->$key->name; ?>" title="<?php echo $items_info->$key->name . ' - ' . $value; ?> times"/>
+							<span class="itemPercentage"><?php echo round($value / $champions_data->$id->played * 100, 2); ?>%</span>
 						</div>
 						<?php
 					}
 					?>
 				</div>
-				<div class="col-xs-12"><br/></div>
 				<?php
 			}
 			?>
