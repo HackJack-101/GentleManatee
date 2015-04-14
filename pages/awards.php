@@ -140,7 +140,7 @@ $markedMan	 = $champions_info->$markedManKey;
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Press R Award</span> for highest damage dealt by match in URF
+							<span class="awardName">Press R Award</span> for highest damage dealt per match in URF
 						</div>
 					</div>
 				</div>
@@ -199,7 +199,7 @@ $markedMan	 = $champions_info->$markedManKey;
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Not Hurting a Fly Award</span> for lowest damage dealt by match in URF
+							<span class="awardName">Not Hurting a Fly Award</span> for lowest damage dealt per match in URF
 						</div>
 					</div>
 				</div>
@@ -227,7 +227,7 @@ $markedMan	 = $champions_info->$markedManKey;
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Marked Yordle Award</span> for highest number of deaths by match in URF
+							<span class="awardName">Marked Yordle Award</span> for highest number of deaths per match in URF
 						</div>
 					</div>
 				</div>
