@@ -273,7 +273,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 						</div>
 						<div class="description">
 							<span class="awardName">Red Cross Award</span> for highest heal dealt per match in URF
-							<div class="quote">Call 911! Didou didou didou!</div>
+							<div class="quote"><a href="https://youtu.be/9i3KQeieQG0" target="_blank">Call 911! Didou didou didou!</a></div>
 						</div>
 					</div>
 				</div>
@@ -306,6 +306,21 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 						<div class="description">
 							<span class="awardName">Boots of Uselessness Award</span> for being bought <?php echo $lucidityBought ?> times in <?php echo $teams_data->red->wins + $teams_data->blue->wins; ?> URF matchs
 							<div class="quote">Cooldown Reduction, OVER 9000!</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $healer->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/spell/SummonerMana.png" alt="Clarity"/>
+								Clarity
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Uselessness Spell Award</span> for being taken <?php echo $clarityTaken ?> times in <?php echo $teams_data->red->wins + $teams_data->blue->wins; ?> URF matchs
+							<div class="quote"><a href="https://youtu.be/8N_tupPBtWQ" target="_blank">Mana Mana!</a></div>
 						</div>
 					</div>
 				</div>

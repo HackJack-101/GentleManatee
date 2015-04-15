@@ -1,10 +1,12 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config/debug.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/champions.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/items.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/bans.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/ranking.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/teams.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/spells.php';
 
 /* * ************* Champions picked ************** */
 $picks_desc		 = array();
@@ -52,6 +54,14 @@ foreach ($champions_items as $item)
 	foreach ($lucidityIDs as $id)
 		if (!empty($item->$id))
 			$lucidityBought += $item->$id;
+}
+
+$clarityTaken = 0;
+foreach ($champions_spells as $spell)
+{
+	$clarityID = 13;
+	if (isset($spell->$clarityID))
+		$clarityTaken += $spell->$clarityID;
 }
 
 /* * ************* Sorting  ************** */
