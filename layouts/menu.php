@@ -6,8 +6,8 @@
 
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
+				<li><a href="/overview">Overview</a></li>	
 				<li><a href="/champions">Champions</a></li>	
-				<li><a href="/awards">Awards</a></li>	
 			</ul>
 		</div>
 	</div>

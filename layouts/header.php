@@ -10,6 +10,7 @@ if (empty($html_title))
 
 		<link href="/favicon.png" type="image/png" rel="icon" />
 		<link href="/favicon.png" type="image/png" rel="shortcut icon" />
+		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="/libraries/DoughnutChart/style.css"/> 
 		<link rel="stylesheet" href="/style/main.css" type="text/css"/>
@@ -17,6 +18,7 @@ if (empty($html_title))
 		<meta name="description" content="URF URF URF"/>
         <meta name="keywords" content="URF, Manatee, Gentleman"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		
 
 		<meta property="og:locale" content="en_US"/>
         <meta property="og:image" content="http://challenge.hackjack.info/favicon.png"/>

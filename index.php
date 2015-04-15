@@ -1,338 +1,342 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/globalstats.php';
-
+require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 ?>
-<script type="text/javascript">
-	$(document).ready(function () {
-		//Highcharts.setOptions({colors: ['#a90008', '#7d6241', '#bdbdbd', '#ebdd8d', '#356562', '#32a6d6', '#D7DADB', '#c0edeb']});
-		$('#mostHatedChampions').highcharts({
-			chart: {
-				type: 'column',
-				backgroundColor: 'rgba(255,255,255,0.55)'
-			},
-			title: {
-				text: 'Most Hated Champions'
-			},
-			xAxis: {
-				categories: ["<?php echo implode('","', $mostBansNames); ?>"],
-				labels: {
-					useHTML: true,
-					style: {
-						verticalAlign: 'middle',
-						textAlign: 'center',
-						display: 'block'
-					}
-				}
-			},
-			yAxis: {
-				min: 0,
-				title: {
-					text: 'Percentage games banned (%)'
-				},
-				stackLabels: {
-					enabled: true,
-					style: {
-						fontWeight: 'bold',
-						color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-					},
-					formatter: function () {
-						return this.total + ' %';
-					}
-				}
-			},
-			credits: {
-				enabled: false
-			},
-			legend: {
-				align: 'right',
-				x: -30,
-				verticalAlign: 'top',
-				y: 25,
-				floating: true,
-				backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-				borderColor: '#CCC',
-				borderWidth: 1,
-				shadow: false
-			},
-			tooltip: {
-				enabled: false,
-			},
-			plotOptions: {
-				column: {
-					stacking: 'normal',
-					dataLabels: {
-						enabled: true,
-						allowOverlap: true,
-						color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
-						style: {
-							textShadow: '0 0 3px black'
-						},
-						formatter: function () {
-							return this.y + ' %';
-						}
-					}
-				}
-			},
-			series: []
-		});
-		$(function () {
-			$('#mostLovedChampions').highcharts({
-				chart: {
-					type: 'column',
-					backgroundColor: 'rgba(255,255,255,0.55)'
-				},
-				title: {
-					text: 'Most Loved Champions'
-				},
-				xAxis: {
-					categories: ["<?php echo implode('","', $mostPicksNames); ?>"],
-					labels: {
-						useHTML: true,
-						style: {
-							verticalAlign: 'middle',
-							textAlign: 'center',
-							display: 'block'
-						}
-					}
-				},
-				yAxis: {
-					min: 0,
-					title: {
-						text: 'Popularity (%)'
-					},
-					stackLabels: {
-						enabled: true,
-						style: {
-							fontWeight: 'bold',
-							color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-						},
-						formatter: function () {
-							return this.total + ' %';
-						}
-					}
-				},
-				tooltip: {
-					enabled: false,
-				},
-				credits: {
-					enabled: false
-				},
-				plotOptions: {
-					column: {
-						stacking: 'normal',
-					}
-				},
-				series: []
-			});
-		});
-		$('#allRankingChart').highcharts({
-			chart: {
-				type: 'pie',
-				options3d: {
-					enabled: true,
-					alpha: 45
-				},
-				backgroundColor: 'rgba(255,255,255,0.55)'
-			},
-			colors: ['#898FF0', '#7D6951', '#bdbdbd', '#EBDD54', '#356562', '#32a6d6', '#D7DADB', '#c0edeb'],
-			credits: {
-				enabled: false
-			},
-			title: {
-				text: 'Who plays ?'
-			},
-			subtitle: {
-				text: 'Highest ranking in S4'
-			},
-			plotOptions: {
-				pie: {
-					innerSize: 200,
-					depth: 20
-				}
-			},
-			series: [{
-					name: 'Percentage',
-					data: [
-						['Unranked',<?php echo $all_ranking->unranked ?>],
-						['Bronze',<?php echo $all_ranking->bronze ?>],
-						['Silver',<?php echo $all_ranking->silver ?>],
-						['Gold',<?php echo $all_ranking->gold ?>],
-						['Platinum',<?php echo $all_ranking->platinum ?>],
-						['Diamond',<?php echo $all_ranking->diamond ?>],
-						['Master',<?php echo $all_ranking->master ?>],
-						['Challenger',<?php echo $all_ranking->challenger ?>]
-					]
-				}]
-		});
-		$('#teamBlueRedChart').highcharts({
-			chart: {
-				plotBackgroundColor: null,
-				plotBorderWidth: null,
-				plotShadow: false
-			},
-			colors: ['#EA3F50', '#3838D1'],
-			credits: {
-				enabled: false
-			},
-			title: {
-				text: 'Blue or Red Team ?'
-			},
-			tooltip: {
-				pointFormat: '{series.name}: <b>{point.y}</b>'
-			},
-			plotOptions: {
-				pie: {
-					allowPointSelect: true,
-					cursor: 'pointer',
-					dataLabels: {
-						distance: -50,
-						enabled: true,
-						crop: true,
-						format: '<b>{point.name}</b> :<br/>{point.percentage:.2f} %',
-						style: {
-							color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-						}
-					}
-				}
-			},
-			series: [{
-					type: 'pie',
-					name: 'Wins',
-					data: [
-						['Red Team', <?php echo $teams_data->red->wins ?>],
-						['Blue Team', <?php echo $teams_data->blue->wins ?>]
-					]
-				}]
-		});
-		setTimeout(function () {
-			$('#mostLovedChampions').highcharts().addSeries({
-				name: 'Popularity',
-				data: [<?php echo implode(',', $mostPicksSeries); ?>],
-				showInLegend: false
-			});
-		}, 250);
-		setTimeout(function () {
-			$('#mostHatedChampions').highcharts().addSeries({name: 'First ban', data: [<?php echo implode(',', $mostBansSeries[1]); ?>]});
-		}, 500);
-		setTimeout(function () {
-			$('#mostHatedChampions').highcharts().addSeries({name: 'Second ban', data: [<?php echo implode(',', $mostBansSeries[2]); ?>]});
-		}, 1000);
-		setTimeout(function () {
-			$('#mostHatedChampions').highcharts().addSeries({name: 'Third ban', data: [<?php echo implode(',', $mostBansSeries[3]); ?>]});
-		}, 1500);
-		setTimeout(function () {
-			$('#mostHatedChampions').highcharts().addSeries({name: 'Fourth ban', data: [<?php echo implode(',', $mostBansSeries[4]); ?>]});
-		}, 2000);
-		setTimeout(function () {
-			$('#mostHatedChampions').highcharts().addSeries({name: 'Fifth ban', data: [<?php echo implode(',', $mostBansSeries[5]); ?>]});
-		}, 2500);
-		setTimeout(function () {
-			$('#mostHatedChampions').highcharts().addSeries({name: 'Sixth ban', data: [<?php echo implode(',', $mostBansSeries[6]); ?>]});
-		}, 3000);
-	});
-</script>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>GentleManatee - The 2015 URF Awards</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
 
-<div class="row">
-	<div class="col-md-12">
-		<br/>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<div id="mostLovedChampions" style="height: 300px; margin: 0 auto"></div>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<br/>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<div id="mostHatedChampions" style="min-width: 310px; height: 450px; margin: 0 auto"></div>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<br/>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<div id="allRankingChart"></div>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<br/>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<h2>Winners</h2>
-	</div>
-</div>
-<div class="row">
-	<?php
-	foreach ($winners as $key => $value)
-	{
-		$champ_info = $champions_info->$key;
-		?>
-		<div class="col-md-2 col-xs-3">
-			<a class="thumbnail" href="/champions/<?php echo $champ_info->name; ?>">
-				<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $champ_info->key; ?>.png" alt="<?php echo $champ_info->name; ?>" class="portrait"/>
-				<div class="caption center">
-					<?php echo $champ_info->name; ?><br/>
-					<b><?php echo round($value * 100, 2); ?>%</b>
+		<link href="/favicon.png" type="image/png" rel="icon" />
+		<link href="/favicon.png" type="image/png" rel="shortcut icon" />
+		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+		<link href='http://fonts.googleapis.com/css?family=Limelight' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/style/parallax.css"/>
+
+		<meta name="description" content="URF URF URF"/>
+        <meta name="keywords" content="URF, Manatee, Gentleman"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+		<meta property="og:locale" content="en_US"/>
+        <meta property="og:image" content="http://challenge.hackjack.info/favicon.png"/>
+
+		<script type="text/javascript" src="/scripts/music.js"></script>
+	</head> 
+
+	<body> 
+		<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/menu.php'; ?>
+		<audio src="/sounds/LoginScreenIntro.mp3" id="introMusic" loop>
+			Votre navigateur ne supporte pas l'élément <code>audio</code>.
+		</audio>
+		<button onclick="mute();" id="muteMusic"><span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span></button>
+
+		<div id="slide1">
+			<div class="content container">
+				<div id="intro">
+					<img class="img-responsive" src="/images/gentlemanatee.png"/>
 				</div>
-			</a>
-		</div>
-		<?php
-	}
-	?>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<h2>Losers</h2>
-	</div>
-</div>
-<div class="row">
-	<?php
-	foreach ($losers as $key => $value)
-	{
-		$champ_info = $champions_info->$key;
-		?>
-		<div class="col-md-2 col-xs-3">
-			<a class="thumbnail" href="/champions/<?php echo $champ_info->name; ?>">
-				<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $champ_info->key; ?>.png" alt="<?php echo $champ_info->name; ?>" class="portrait"/>
-				<div class="caption" style="text-align: center">
-					<?php echo $champ_info->name; ?><br/>
-					<b><?php echo round($value * 100, 2); ?>%</b>
-				</div>
-			</a>
-		</div>
-		<?php
-	}
-	?>
-</div>
-<?php
-$games = $teams_data->red->wins + $teams_data->blue->wins;
-?>
-<div class="row">
-	<div class="col-md-6">
-		<div id="teamBlueRedChart"></div>
-	</div>
-	<div class="col-md-6 thumbnail">
-		<ul>
-			<li><b><?php echo $games ?></b> URF games saved</li>
-			<li>In <b><?php echo round(($teams_data->red->winWithFirstTower + $teams_data->red->winWithFirstTower) / $games * 100, 2); ?>%</b> games, the team, who takes the first <b>tower</b>, wins.</li>
-			<li>In <b><?php echo round(($teams_data->red->winWithFirstDragon + $teams_data->red->winWithFirstDragon) / $games * 100, 2); ?>%</b> games, the team, who takes the first <b>dragon</b>, wins.</li>
-			<li>In <b><?php echo round(($teams_data->red->winWithFirstBaron + $teams_data->red->winWithFirstBaron) / $games * 100, 2); ?>%</b> games, the team, who takes the first <b>baron</b>, wins.</li>
-		</ul>
-	</div>
-</div>
+				<h3 class="limelight" id="presents">presents</h3>
+			</div> 
+		</div> 
 
-<?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/footer.php';
-?>
+		<div class="slideDiviser" id="slide2">
+			<div class="content container" >
+				<div class="row">
+					<div class="col-md-12">
+						<h2 id="awards" class="limelight center">The 2015 URF AWARDS</h2>
+						<h2 class="limelight center">The BEST Category</h2>
+					</div>
+				</div>
+			</div> 
+		</div> 
+
+		<div class="slide" id="slide3">
+			<div class="content container">
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $winner->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $winner->key ?>.png" alt="<?php echo $winner->name ?>"/>
+								<?php echo $winner->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Winner Award</span> for best winrate in URF
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $famous->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $famous->key ?>.png" alt="<?php echo $famous->name ?>"/>
+								<?php echo $famous->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Famous Award</span> for most picked in URF
+							<div class="quote">People love me</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $banned->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $banned->key ?>.png" alt="<?php echo $banned->name ?>"/>
+								<?php echo $banned->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Unwelcome Award</span> for most banned in URF
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $bestDealer->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $bestDealer->key ?>.png" alt="<?php echo $bestDealer->name ?>"/>
+								<?php echo $bestDealer->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Press R Award</span> for highest damage dealt per match in URF
+						</div>
+					</div>
+				</div>
+			</div> 
+		</div> 
+
+
+		<div class="slideDiviser" id="slide4">
+			<div class="content container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 id="awards" class="limelight center">The WORST Category</h2>
+					</div>
+				</div>
+			</div> 
+		</div> 
+
+
+		<div class="slide" id="slide5">
+			<div class="content container">
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $loser->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $loser->key ?>.png" alt="<?php echo $loser->name ?>"/>
+								<?php echo $loser->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Loser Award</span> for worst winrate in URF
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $forgotten->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $forgotten->key ?>.png" alt="<?php echo $forgotten->name ?>"/>
+								<?php echo $forgotten->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Forgotten Award</span> for least picked in URF
+							<div class="quote">Come play with me, please…</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $worstDealer->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $worstDealer->key ?>.png" alt="<?php echo $worstDealer->name ?>"/>
+								<?php echo $worstDealer->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Not Hurting a Fly Award</span> for lowest damage dealt per match in URF
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $deadBody->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $deadBody->key ?>.png" alt="<?php echo $deadBody->name ?>"/>
+								<?php echo $deadBody->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Teemo Award</span> for highest number of death in URF
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $markedMan->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $markedMan->key ?>.png" alt="<?php echo $markedMan->name ?>"/>
+								<?php echo $markedMan->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Marked Yordle Award</span> for highest number of deaths per match in URF
+							<div class="quote">Stop focus me!</div>
+						</div>
+					</div>
+				</div>
+			</div> 
+		</div> 
+
+
+		<div class="slideDiviser" id="slide6">
+			<div class="content container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 id="awards" class="limelight center">The BULLDOZER Category</h2>
+					</div>
+				</div>
+			</div> 
+		</div> 
+
+
+		<div class="slide" id="slide7">
+			<div class="content container">
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $bestTank->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $bestTank->key ?>.png" alt="<?php echo $bestTank->name ?>"/>
+								<?php echo $bestTank->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Tank Award</span> for highest damage taken per match in URF
+							<div class="quote">MUUUNNNNDOOOOO!</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $inhibMan->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $inhibMan->key ?>.png" alt="<?php echo $inhibMan->name ?>"/>
+								<?php echo $inhibMan->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Hulk Award</span> for highest inhibitor kills during a match in URF
+						</div>
+					</div>
+				</div>
+			</div> 
+		</div>
+
+
+		<div class="slideDiviser" id="slide8">
+			<div class="content container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 id="awards" class="limelight center">The SUPPORT Category</h2>
+					</div>
+				</div>
+			</div> 
+		</div> 
+
+
+		<div class="slide" id="slide9">
+			<div class="content container">
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $healer->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $healer->key ?>.png" alt="<?php echo $healer->name ?>"/>
+								<?php echo $healer->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Red Cross Award</span> for highest heal dealt per match in URF
+							<div class="quote">Call 911! Didou didou didou!</div>
+						</div>
+					</div>
+				</div>
+
+			</div> 
+		</div> 
+
+		<div class="slideDiviser" id="slide10">
+			<div class="content container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 id="awards" class="limelight center">The USELESS Category</h2>
+					</div>
+				</div>
+			</div> 
+		</div> 
+
+
+		<div class="slide" id="slide11">
+			<div class="content container">
+				<div class="row reward">
+
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $healer->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/item/3158.png" alt="Ionian Boots of Lucidity"/>
+								Ionian Boots of Lucidity
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Boots of Uselessness Award</span> for being bought <?php echo $lucidityBought ?> times in <?php echo $teams_data->red->wins + $teams_data->blue->wins; ?> URF matchs
+							<div class="quote">Cooldown Reduction, OVER 9000!</div>
+						</div>
+					</div>
+				</div>
+			</div> 
+		</div> 
+
+		<div class="slideDiviser" id="slide12">
+			<div class="content container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 id="awards" class="limelight center">Special Thanks</h2>
+					</div>
+				</div>
+			</div> 
+		</div> 
+
+
+		<div class="slide" id="slide13">
+			<div class="content container">
+				<div class="row reward">
+					<div class="col-md-12">
+						It's not over buddies ;)
+					</div>
+				</div>
+			</div> 
+		</div> 
+
+		<footer style="text-align: center; font-style: italic; color: white; padding: 1em 0;">
+			This product is not endorsed, certified or otherwise approved in any way by Riot Games, Inc. or any of its affiliates.<br/>
+			© 2015 Riot Games, Inc. All rights reserved. Riot Games, League of Legends and PvP.net are trademarks, services marks, or registered trademarks of Riot Games, Inc.
+		</footer>
+
+	</body>
+</html>
