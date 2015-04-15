@@ -28,7 +28,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 
 	<body> 
 		<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/menu.php'; ?>
-		<audio src="/sounds/LoginScreenIntro.mp3" id="introMusic" loop>
+		<audio id="introMusic" loop>
+			<source src="/sounds/LoginScreenIntro.mp3" type="audio/mpeg">
+			<source src="/sounds/LoginScreenIntro.ogg" type="audio/ogg">
 			Votre navigateur ne supporte pas l'élément <code>audio</code>.
 		</audio>
 		<button onclick="mute();" id="muteMusic"><span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span></button>
