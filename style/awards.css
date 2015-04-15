@@ -150,8 +150,9 @@ div.award .quote::before
 {
 	margin-right: 0.2em;
 	display: inline-block !important;
-	border-radius: 120px;
+	border-radius: 130px;
 	border: #ffce39 solid 5px;
+	height: 130px;
 }
 
 

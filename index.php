@@ -14,7 +14,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 		<link href='http://fonts.googleapis.com/css?family=Limelight' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/style/parallax.css"/>
+		<link rel="stylesheet" href="/style/awards.css"/>
 
 		<meta name="description" content="URF URF URF"/>
         <meta name="keywords" content="URF, Manatee, Gentleman"/>
