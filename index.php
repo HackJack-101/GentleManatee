@@ -119,7 +119,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 			<div class="content container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 id="awards" class="limelight center">The WORST Category</h2>
+						<h2 id="worst" class="limelight center categoryAwards">The WORST Category</h2>
 					</div>
 				</div>
 			</div> 
@@ -207,7 +207,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 			<div class="content container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 id="awards" class="limelight center">The BULLDOZER Category</h2>
+						<h2 id="bulldozer" class="limelight center categoryAwards">The BULLDOZER Category</h2>
 					</div>
 				</div>
 			</div> 
@@ -253,7 +253,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 			<div class="content container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 id="awards" class="limelight center">The SUPPORT Category</h2>
+						<h2 id="support" class="limelight center categoryAwards">The SUPPORT Category</h2>
 					</div>
 				</div>
 			</div> 
@@ -285,7 +285,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 			<div class="content container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 id="awards" class="limelight center">The USELESS Category</h2>
+						<h2 id="useless" class="limelight center categoryAwards">The USELESS Category</h2>
 					</div>
 				</div>
 			</div> 
@@ -298,7 +298,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 
 					<div class="col-md-12 award">
 						<div class="portrait">
-							<a href="/champions/<?php echo $healer->name ?>" class="name">
+							<a href="#useless" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/item/3158.png" alt="Ionian Boots of Lucidity"/>
 								Ionian Boots of Lucidity
 							</a>
@@ -313,7 +313,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 				<div class="row reward">
 					<div class="col-md-12 award">
 						<div class="portrait">
-							<a href="/champions/<?php echo $healer->name ?>" class="name">
+							<a href="#useless" class="name">
 								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/spell/SummonerMana.png" alt="Clarity"/>
 								Clarity
 							</a>
@@ -331,7 +331,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 			<div class="content container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 id="awards" class="limelight center">Special Thanks</h2>
+						<h2 id="thanks" class="limelight center categoryAwards">Special Thanks</h2>
 					</div>
 				</div>
 			</div> 

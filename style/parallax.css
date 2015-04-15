@@ -22,9 +22,14 @@ body{
 	text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
 }
 
-#awards
+#awards, .categoryAwards
 {
 	font-size: 5em;
+}
+
+footer
+{
+	color: white !important;
 }
 
 #muteMusic {
