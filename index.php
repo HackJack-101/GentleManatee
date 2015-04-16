@@ -109,7 +109,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Press R Award</span> for highest damage dealt per match in URF
+							<span class="awardName">Press R Award</span> for highest damage dealt per game in URF
 						</div>
 					</div>
 				</div>
@@ -168,7 +168,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Not Hurting a Fly Award</span> for lowest damage dealt per match in URF
+							<span class="awardName">Not Hurting a Fly Award</span> for lowest damage dealt per game in URF
 						</div>
 					</div>
 				</div>
@@ -196,7 +196,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Marked Yordle Award</span> for highest number of deaths per match in URF
+							<span class="awardName">Marked Yordle Award</span> for highest number of deaths per game in URF
 							<div class="quote">Stop focus me!</div>
 						</div>
 					</div>
@@ -228,7 +228,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Tank Award</span> for highest damage taken per match in URF
+							<span class="awardName">Tank Award</span> for highest damage taken per game in URF
 							<div class="quote">MUUUNNNNDOOOOO!</div>
 						</div>
 					</div>
@@ -243,7 +243,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Hulk Award</span> for highest inhibitor kills during a match in URF
+							<span class="awardName">Hulk Award</span> for highest inhibitor kills during a game in URF
 						</div>
 					</div>
 				</div>
@@ -274,7 +274,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Red Cross Award</span> for highest heal dealt per match in URF
+							<span class="awardName">Red Cross Award</span> for highest heal dealt per game in URF
 							<div class="quote"><a href="https://youtu.be/9i3KQeieQG0" target="_blank">Call 911! Didou didou didou!</a></div>
 						</div>
 					</div>
@@ -306,7 +306,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Boots of Uselessness Award</span> for being bought <?php echo $lucidityBought ?> times in <?php echo $teams_data->red->wins + $teams_data->blue->wins; ?> URF matchs
+							<span class="awardName">Boots of Uselessness Award</span> for being bought <?php echo $lucidityBought ?> times in <?php echo $teams_data->red->wins + $teams_data->blue->wins; ?> URF games
 							<div class="quote">Cooldown Reduction, OVER 9000!</div>
 						</div>
 					</div>
@@ -321,7 +321,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Uselessness Spell Award</span> for being taken <?php echo $clarityTaken ?> times in <?php echo $teams_data->red->wins + $teams_data->blue->wins; ?> URF matchs
+							<span class="awardName">Uselessness Spell Award</span> for being taken <?php echo $clarityTaken ?> times in <?php echo $teams_data->red->wins + $teams_data->blue->wins; ?> URF games
 							<div class="quote"><a href="https://youtu.be/8N_tupPBtWQ" target="_blank">Mana Mana!</a></div>
 						</div>
 					</div>

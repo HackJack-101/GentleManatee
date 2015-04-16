@@ -500,7 +500,7 @@ $games = $teams_data->red->wins + $teams_data->blue->wins;
 <div class="row">
 	<div class="col-md-12 center" id="summaryStats">
 		<b><?php echo $games ?></b> URF games are analyzed.<br/>
-		The longest match lasted 
+		The longest game lasted 
 		<b>
 			<?php
 			$dt			 = new DateTime();
@@ -509,7 +509,7 @@ $games = $teams_data->red->wins + $teams_data->blue->wins;
 			echo $interval->format("%h hours %i minutes and %s seconds");
 			?>
 		</b>.<br/>
-		The shortest match lasted 
+		The shortest game lasted 
 		<b>
 			<?php
 			$dt			 = new DateTime();
@@ -518,7 +518,7 @@ $games = $teams_data->red->wins + $teams_data->blue->wins;
 			echo $interval->format("%i minutes and %s seconds");
 			?>
 		</b>.<br/>
-		In average, an URF match lasts 
+		The average URF game lasts 
 		<b>
 			<?php
 			$dt			 = new DateTime();
