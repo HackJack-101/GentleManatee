@@ -21,6 +21,19 @@
 	background-color: #242424;
 }	
 
+.statsChart 
+{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+ .littleCharts .highcharts-container
+ {
+	 border-radius: 5px;
+	 border: solid 1px rgb(229, 229, 229);
+	 background: rgba(255,255,255,0.5);
+ }
+
 #spells, .items
 {
 	display: flex;

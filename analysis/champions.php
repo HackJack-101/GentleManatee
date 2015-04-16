@@ -1,18 +1,19 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config/debug.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config/api_key.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/objects/Stats.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config/server.php';
 
-$champions_cache_server = $_SERVER['DOCUMENT_ROOT'] . '/cache/server/champions.json';
-$champions_cache_api = $_SERVER['DOCUMENT_ROOT'] . '/cache/api/champions.json';
-$region = 'euw';
+$champions_cache_server	 = $_SERVER['DOCUMENT_ROOT'] . '/cache/server/champions.json';
+$champions_cache_api	 = $_SERVER['DOCUMENT_ROOT'] . '/cache/api/champions.json';
+$region					 = 'euw';
 
 if (!file_exists($champions_cache_server))
 {
 	$url_champions = $server_url . 'Champions';
 
-	$curl = curl_init();
+	$curl	 = curl_init();
 	curl_setopt($curl, CURLOPT_URL, $url_champions);
 	curl_setopt($curl, CURLOPT_TIMEOUT, 10);
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -30,14 +31,14 @@ if (!file_exists($champions_cache_server))
 	file_put_contents($champions_cache_server, json_encode($champions));
 }
 
-$champions_data = file_get_contents($champions_cache_server);
-$champions_data = json_decode($champions_data);
+$champions_data	 = file_get_contents($champions_cache_server);
+$champions_data	 = json_decode($champions_data);
 
 if (!file_exists($champions_cache_api))
 {
 	$url_champions = 'https://global.api.pvp.net/api/lol/static-data/' . $region . '/v1.2/champion?version=5.6.1&api_key=' . $apiKey;
 
-	$curl = curl_init();
+	$curl	 = curl_init();
 	curl_setopt($curl, CURLOPT_URL, $url_champions);
 	curl_setopt($curl, CURLOPT_PROTOCOLS, CURLPROTO_HTTPS);
 	curl_setopt($curl, CURLOPT_TIMEOUT, 10);
@@ -53,10 +54,16 @@ if (!file_exists($champions_cache_api))
 	file_put_contents($champions_cache_api, json_encode($champions));
 }
 
-$champions_info = file_get_contents($champions_cache_api);
-$champions_info = json_decode($champions_info);
+$champions_info	 = file_get_contents($champions_cache_api);
+$champions_info	 = json_decode($champions_info);
 
-$stats = new Stats();
+$totalplayed	 = 0;
+$stats			 = new Stats();
+$damagesDealt	 = array(
+	"AP"	 => 0,
+	"AD"	 => 0,
+	"True"	 => 0
+);
 foreach ($champions_data as $champion)
 {
 	foreach ($champion as $key => $value)
@@ -64,7 +71,7 @@ foreach ($champions_data as $champion)
 		$stats->setMax($key, $value);
 		$stats->setMin($key, $value);
 	}
-	$totalBans = $champion->banAtSixthTurn + $champion->banAtFifthTurn + $champion->banAtFourthTurn + $champion->banAtThirdTurn + $champion->banAtSecondTurn + $champion->banAtFirstTurn;
+	$totalBans	 = $champion->banAtSixthTurn + $champion->banAtFifthTurn + $champion->banAtFourthTurn + $champion->banAtThirdTurn + $champion->banAtSecondTurn + $champion->banAtFirstTurn;
 	$stats->setMax('averageMaxCriticalStrike', round($champion->cumulatedMaxCriticalStrike / $champion->played));
 	$stats->setMin('averageMaxCriticalStrike', round($champion->cumulatedMaxCriticalStrike / $champion->played));
 	$stats->setMax('averageCumulatedTotalDamageTaken', round($champion->cumulatedTotalDamageTaken / $champion->played));
@@ -90,5 +97,10 @@ foreach ($champions_data as $champion)
 	$stats->setMax('totalBans', $totalBans);
 	$stats->setMin('totalBans', $totalBans);
 	$stats->count('played', $champion->played);
+	$totalplayed = $totalplayed + $champion->played;
+	$damagesDealt["AP"] += $champion->cumulatedMagicDamageDealtToChampions;
+	$damagesDealt["AD"] += $champion->cumulatedPhysicalDamageDealtToChampions;
+	$damagesDealt["True"] += $champion->cumulatedTrueDamageDealtToChampions;
 }
+//echo $totalplayed;
 ?>

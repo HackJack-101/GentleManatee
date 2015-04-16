@@ -109,7 +109,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 				{
 					?>
 					<div class="spell">
-						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/spell/<?php echo($spells_info->$key->key) ?>.png" alt="<?php echo $spells_info->$key->name; ?>" title="<?php echo $spells_info->$key->name; ?>"/>
+						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/spell/<?php echo($spells_info->$key->key) ?>.png" alt="<?php echo $spells_info->$key->name; ?>" title="<?php echo $spells_info->$key->name . ' - ' . $value; ?> times"/>
 						<span class="spellPercentage"><?php echo round($value / ($spellsTotal / 2) * 100, 2); ?>%</span>
 					</div>
 					<?php
@@ -134,7 +134,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 						?>
 						<div class="item">
 							<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/item/<?php echo($items_info->$key->key) ?>.png" alt="<?php echo $items_info->$key->name; ?>" title="<?php echo $items_info->$key->name . ' - ' . $value; ?> times"/>
-							<span class="itemPercentage"><?php echo round($value / $champions_data->$id->played * 100, 2); ?>%</span>
+							<span class="itemPercentage"><?php echo round($value / ($spellsTotal / 2) * 100, 2); ?>%</span>
 						</div>
 						<?php
 					}

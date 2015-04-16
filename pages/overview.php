@@ -2,6 +2,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/globalstats.php';
 
+$games = $teams_data->red->wins + $teams_data->blue->wins;
 ?>
 <script type="text/javascript">
 	$(document).ready(function () {
@@ -76,55 +77,53 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/globalstats.php';
 			},
 			series: []
 		});
-		$(function () {
-			$('#mostLovedChampions').highcharts({
-				chart: {
-					type: 'column',
-					backgroundColor: 'rgba(255,255,255,0.55)'
-				},
+		$('#mostLovedChampions').highcharts({
+			chart: {
+				type: 'column',
+				backgroundColor: 'rgba(255,255,255,0.55)'
+			},
+			title: {
+				text: 'Most Loved Champions'
+			},
+			xAxis: {
+				categories: ["<?php echo implode('","', $mostPicksNames); ?>"],
+				labels: {
+					useHTML: true,
+					style: {
+						verticalAlign: 'middle',
+						textAlign: 'center',
+						display: 'block'
+					}
+				}
+			},
+			yAxis: {
+				min: 0,
 				title: {
-					text: 'Most Loved Champions'
+					text: 'Popularity (%)'
 				},
-				xAxis: {
-					categories: ["<?php echo implode('","', $mostPicksNames); ?>"],
-					labels: {
-						useHTML: true,
-						style: {
-							verticalAlign: 'middle',
-							textAlign: 'center',
-							display: 'block'
-						}
-					}
-				},
-				yAxis: {
-					min: 0,
-					title: {
-						text: 'Popularity (%)'
+				stackLabels: {
+					enabled: true,
+					style: {
+						fontWeight: 'bold',
+						color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
 					},
-					stackLabels: {
-						enabled: true,
-						style: {
-							fontWeight: 'bold',
-							color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-						},
-						formatter: function () {
-							return this.total + ' %';
-						}
+					formatter: function () {
+						return this.total + ' %';
 					}
-				},
-				tooltip: {
-					enabled: false,
-				},
-				credits: {
-					enabled: false
-				},
-				plotOptions: {
-					column: {
-						stacking: 'normal',
-					}
-				},
-				series: []
-			});
+				}
+			},
+			tooltip: {
+				enabled: false,
+			},
+			credits: {
+				enabled: false
+			},
+			plotOptions: {
+				column: {
+					stacking: 'normal',
+				}
+			},
+			series: []
 		});
 		$('#allRankingChart').highcharts({
 			chart: {
@@ -169,7 +168,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/globalstats.php';
 			chart: {
 				plotBackgroundColor: null,
 				plotBorderWidth: null,
-				plotShadow: false
+				plotShadow: false,
+				backgroundColor: 'rgba(255,255,255,0.55)'
 			},
 			colors: ['#EA3F50', '#3838D1'],
 			credits: {
@@ -205,6 +205,176 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/globalstats.php';
 					]
 				}]
 		});
+
+		$('#dragonChart').highcharts({
+			chart: {
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				plotShadow: false,
+				backgroundColor: 'rgba(255,255,255,0.55)'
+			},
+			colors: ['#EA3F50', '#3838D1'],
+			credits: {
+				enabled: false
+			},
+			title: {
+				text: 'Winner teams and the first Drake'
+			},
+			tooltip: {
+				pointFormat: '{series.name}: <b>{point.y}</b>'
+			},
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						distance: -50,
+						enabled: true,
+						crop: true,
+						format: '<b>{point.name}</b> :<br/>{point.percentage:.2f} %',
+						style: {
+							color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+						}
+					}
+				}
+			},
+			series: [{
+					type: 'pie',
+					name: 'Wins',
+					data: [
+						['Taken', <?php echo $teams_data->red->winWithFirstDragon + $teams_data->red->winWithFirstDragon ?>],
+						['Nope', <?php echo $games - ($teams_data->red->winWithFirstDragon + $teams_data->red->winWithFirstDragon) ?>]
+					]
+				}]
+		});
+		$('#towerChart').highcharts({
+			chart: {
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				plotShadow: false,
+				backgroundColor: 'rgba(255,255,255,0.55)'
+			},
+			colors: ['#EA3F50', '#3838D1'],
+			credits: {
+				enabled: false
+			},
+			title: {
+				text: 'Winner teams and the first tower'
+			},
+			tooltip: {
+				pointFormat: '{series.name}: <b>{point.y}</b>'
+			},
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						distance: -50,
+						enabled: true,
+						crop: true,
+						format: '<b>{point.name}</b> :<br/>{point.percentage:.2f} %',
+						style: {
+							color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+						}
+					}
+				}
+			},
+			series: [{
+					type: 'pie',
+					name: 'Wins',
+					data: [
+						['Taken', <?php echo $teams_data->red->winWithFirstTower + $teams_data->red->winWithFirstTower ?>],
+						['Nope', <?php echo $games - ($teams_data->red->winWithFirstTower + $teams_data->red->winWithFirstTower) ?>]
+					]
+				}]
+		});
+		$('#baronChart').highcharts({
+			chart: {
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				plotShadow: false,
+				backgroundColor: 'rgba(255,255,255,0.55)'
+			},
+			colors: ['#EA3F50', '#3838D1'],
+			credits: {
+				enabled: false
+			},
+			title: {
+				text: 'Winner teams and the first Nashor'
+			},
+			tooltip: {
+				pointFormat: '{series.name}: <b>{point.y}</b>'
+			},
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						distance: -50,
+						enabled: true,
+						crop: true,
+						format: '<b>{point.name}</b> :<br/>{point.percentage:.2f} %',
+						style: {
+							color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+						}
+					}
+				}
+			},
+			series: [{
+					type: 'pie',
+					name: 'Wins',
+					data: [
+						['Taken', <?php echo $teams_data->red->winWithFirstBaron + $teams_data->red->winWithFirstBaron ?>],
+						['Nope', <?php echo $games - ($teams_data->red->winWithFirstBaron + $teams_data->red->winWithFirstBaron) ?>]
+					]
+				}]
+		});
+		$('#damagesDealt').highcharts({
+			chart: {
+				type: 'column',
+				backgroundColor: 'rgba(255,255,255,0.55)'
+			},
+			title: {
+				text: 'TONS of Damage dealt to champions'
+			},
+			xAxis: {
+				categories: ["Ability Power", "Attack Damage", "True Damage"],
+				labels: {
+					useHTML: true,
+					style: {
+						verticalAlign: 'middle',
+						textAlign: 'center',
+						display: 'block'
+					}
+				}
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: 'TONS of Damage'
+				},
+				stackLabels: {
+					enabled: true,
+					style: {
+						fontWeight: 'bold',
+						color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+					}
+				}
+			},
+			tooltip: {
+				enabled: false,
+			},
+			credits: {
+				enabled: false
+			},
+			plotOptions: {
+				column: {
+					stacking: 'normal',
+				}
+			},
+			series: []
+		});
+
 		setTimeout(function () {
 			$('#mostLovedChampions').highcharts().addSeries({
 				name: 'Popularity',
@@ -212,6 +382,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/globalstats.php';
 				showInLegend: false
 			});
 		}, 250);
+		setTimeout(function () {
+			$('#damagesDealt').highcharts().addSeries({
+				name: 'Damages',
+				data: [<?php echo implode(',', $damagesDealt); ?>],
+				showInLegend: false
+			});
+		}, 500);
 		setTimeout(function () {
 			$('#mostHatedChampions').highcharts().addSeries({name: 'First ban', data: [<?php echo implode(',', $mostBansSeries[1]); ?>]});
 		}, 500);
@@ -233,44 +410,24 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/globalstats.php';
 	});
 </script>
 
-<div class="row">
-	<div class="col-md-12">
-		<br/>
-	</div>
-</div>
-<div class="row">
+<div class="row statsChart">
 	<div class="col-md-12">
 		<div id="mostLovedChampions" style="height: 300px; margin: 0 auto"></div>
 	</div>
 </div>
-<div class="row">
-	<div class="col-md-12">
-		<br/>
-	</div>
-</div>
-<div class="row">
+<div class="row statsChart">
 	<div class="col-md-12">
 		<div id="mostHatedChampions" style="min-width: 310px; height: 450px; margin: 0 auto"></div>
 	</div>
 </div>
-<div class="row">
-	<div class="col-md-12">
-		<br/>
-	</div>
-</div>
-<div class="row">
+<div class="row statsChart">
 	<div class="col-md-12">
 		<div id="allRankingChart"></div>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-12">
-		<br/>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<h2>Winners</h2>
+		<h2 class="center">Winners</h2>
 	</div>
 </div>
 <div class="row">
@@ -294,7 +451,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/globalstats.php';
 </div>
 <div class="row">
 	<div class="col-md-12">
-		<h2>Losers</h2>
+		<h2 class="center">Losers</h2>
 	</div>
 </div>
 <div class="row">
@@ -316,20 +473,60 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/globalstats.php';
 	}
 	?>
 </div>
-<?php
-$games = $teams_data->red->wins + $teams_data->blue->wins;
-?>
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-12">
+		<h2 class="center">Global Statistics</h2>
+	</div>
+</div>
+<div class="row littleCharts">
+	<div class="col-md-3">
 		<div id="teamBlueRedChart"></div>
 	</div>
-	<div class="col-md-6 thumbnail">
-		<ul>
-			<li><b><?php echo $games ?></b> URF games saved</li>
-			<li>In <b><?php echo round(($teams_data->red->winWithFirstTower + $teams_data->red->winWithFirstTower) / $games * 100, 2); ?>%</b> games, the team, who takes the first <b>tower</b>, wins.</li>
-			<li>In <b><?php echo round(($teams_data->red->winWithFirstDragon + $teams_data->red->winWithFirstDragon) / $games * 100, 2); ?>%</b> games, the team, who takes the first <b>dragon</b>, wins.</li>
-			<li>In <b><?php echo round(($teams_data->red->winWithFirstBaron + $teams_data->red->winWithFirstBaron) / $games * 100, 2); ?>%</b> games, the team, who takes the first <b>baron</b>, wins.</li>
-		</ul>
+	<div class="col-md-3">
+		<div id="dragonChart"></div>
+	</div>
+	<div class="col-md-3">
+		<div id="towerChart"></div>
+	</div>
+	<div class="col-md-3">
+		<div id="baronChart"></div>
+	</div>
+</div>
+<div class="row statsChart">
+	<div class="col-md-12">
+		<div id="damagesDealt"></div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12 center" id="summaryStats">
+		<b><?php echo $games ?></b> URF games are analyzed.<br/>
+		The longest match lasted 
+		<b>
+			<?php
+			$dt			 = new DateTime();
+			$dt->add(new DateInterval('PT' . $matchs_data->maxDuration . 'S'));
+			$interval	 = $dt->diff(new DateTime());
+			echo $interval->format("%h hours %i minutes and %s seconds");
+			?>
+		</b>.<br/>
+		The shortest match lasted 
+		<b>
+			<?php
+			$dt			 = new DateTime();
+			$dt->add(new DateInterval('PT' . $matchs_data->minDuration . 'S'));
+			$interval	 = $dt->diff(new DateTime());
+			echo $interval->format("%i minutes and %s seconds");
+			?>
+		</b>.<br/>
+		In average, an URF match lasts 
+		<b>
+			<?php
+			$dt			 = new DateTime();
+			$dt->add(new DateInterval('PT' . round($matchs_data->cumulatedDuration / $matchs_data->played) . 'S'));
+			$interval	 = $dt->diff(new DateTime());
+			echo $interval->format("%i minutes and %s seconds");
+			?>
+		</b>.
 	</div>
 </div>
 
