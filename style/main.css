@@ -27,12 +27,12 @@
 	margin-bottom: 2em;
 }
 
- .littleCharts .highcharts-container
- {
-	 border-radius: 5px;
-	 border: solid 1px rgb(229, 229, 229);
-	 background: rgba(255,255,255,0.5);
- }
+.littleCharts .highcharts-container
+{
+	border-radius: 5px;
+	border: solid 1px rgb(229, 229, 229);
+	background: rgba(255,255,255,0.5);
+}
 
 #spells, .items
 {
@@ -83,6 +83,15 @@
 	text-align: center;
 	width: 100%;
 	background: rgba(0,0,0,0.5);
+}
+
+.profileStatistics .row:nth-child(2n)
+{
+	background: rgba(160, 160, 160, 0.5);
+}
+.profileStatistics .col-xs-5
+{
+	font-weight: 600;
 }
 
 .center {

@@ -12,19 +12,23 @@ class ChampionLanes
 	{
 		switch ($lane)
 		{
+			case 8:
 			case 4:
-				$this->jungle	 = $value;
+				$this->jungle	 += $value;
 				break;
+			case 7:
 			case 3:
-				$this->bottom	 = $value;
+				$this->bottom	 += $value;
 				break;
+			case 6:
 			case 2:
-				$this->top		 = $value;
+				$this->top		 += $value;
 				break;
+			case 5:
 			case 1:
 			case 0:
 			default:
-				$this->mid		 = $value;
+				$this->mid		 += $value;
 				break;
 		}
 		$this->total += $value;

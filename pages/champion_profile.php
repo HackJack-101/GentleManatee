@@ -147,75 +147,75 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 	</div>
 	<div class="col-md-8 profileStatistics">
 		<div class="row">
-			<div class="col-xs-8">Popularity</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->played / $matchs_data->played * 100, 1) ?>%</div>
+			<div class="col-xs-7">Popularity</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->played / $matchs_data->played * 100, 1) ?>%</div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Winrate</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->wins / $champions_data->$id->played * 100, 2); ?>%</div>
+			<div class="col-xs-7">Winrate</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->wins / $champions_data->$id->played * 100, 2); ?>%</div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Banned</div>
-			<div class="col-xs-4 right"><?php echo round($bans[$id] / $matchs_data->played * 100, 1); ?>%</div>
+			<div class="col-xs-7">Banned</div>
+			<div class="col-xs-5 right"><?php echo round($bans[$id] / $matchs_data->played * 100, 1); ?>%</div>
 		</div>
 
 		<h2 class="center">Lanes</h2>
 
 		<div class="row">
-			<div class="col-xs-8">Top</div>
-			<div class="col-xs-4 right"><?php echo round($lanes_data->$id->top / $lanes_data->$id->total * 100, 1) ?>%</div>
+			<div class="col-xs-7">Top</div>
+			<div class="col-xs-5 right"><?php echo round($lanes_data->$id->top / $lanes_data->$id->total * 100, 1) ?>%</div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Jungle</div>
-			<div class="col-xs-4 right"><?php echo round($lanes_data->$id->jungle / $lanes_data->$id->total * 100, 1) ?>%</div>
+			<div class="col-xs-7">Jungle</div>
+			<div class="col-xs-5 right"><?php echo round($lanes_data->$id->jungle / $lanes_data->$id->total * 100, 1) ?>%</div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Mid</div>
-			<div class="col-xs-4 right"><?php echo round($lanes_data->$id->mid / $lanes_data->$id->total * 100, 1) ?>%</div>
+			<div class="col-xs-7">Mid</div>
+			<div class="col-xs-5 right"><?php echo round($lanes_data->$id->mid / $lanes_data->$id->total * 100, 1) ?>%</div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Bot</div>
-			<div class="col-xs-4 right"><?php echo round($lanes_data->$id->bottom / $lanes_data->$id->total * 100, 1) ?>%</div>
+			<div class="col-xs-7">Bot</div>
+			<div class="col-xs-5 right"><?php echo round($lanes_data->$id->bottom / $lanes_data->$id->total * 100, 1) ?>%</div>
 		</div>
 
 		<h2 class="center">Roles</h2>
 
 		<div class="row">
-			<div class="col-xs-8">Duo Support</div>
-			<div class="col-xs-4 right"><?php echo round($roles_data->$id->duoSupport / $roles_data->$id->total * 100, 1) ?>%</div>
+			<div class="col-xs-7">Duo Support</div>
+			<div class="col-xs-5 right"><?php echo round($roles_data->$id->duoSupport / $roles_data->$id->total * 100, 1) ?>%</div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Duo Carry</div>
-			<div class="col-xs-4 right"><?php echo round($roles_data->$id->duoCarry / $roles_data->$id->total * 100, 1) ?>%</div>
+			<div class="col-xs-7">Duo Carry</div>
+			<div class="col-xs-5 right"><?php echo round($roles_data->$id->duoCarry / $roles_data->$id->total * 100, 1) ?>%</div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Duo</div>
-			<div class="col-xs-4 right"><?php echo round($roles_data->$id->duo / $roles_data->$id->total * 100, 1) ?>%</div>
+			<div class="col-xs-7">Duo</div>
+			<div class="col-xs-5 right"><?php echo round($roles_data->$id->duo / $roles_data->$id->total * 100, 1) ?>%</div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Solo</div>
-			<div class="col-xs-4 right"><?php echo round($roles_data->$id->solo / $roles_data->$id->total * 100, 1) ?>%</div>
+			<div class="col-xs-7">Solo</div>
+			<div class="col-xs-5 right"><?php echo round($roles_data->$id->solo / $roles_data->$id->total * 100, 1) ?>%</div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">None</div>
-			<div class="col-xs-4 right"><?php echo round($roles_data->$id->none / $roles_data->$id->total * 100, 1) ?>%</div>
+			<div class="col-xs-7">None</div>
+			<div class="col-xs-5 right"><?php echo round($roles_data->$id->none / $roles_data->$id->total * 100, 1) ?>%</div>
 		</div>
 
 		<h2 class="center">Average statistics</h2>
 
 
 		<div class="row">
-			<div class="col-xs-8">KDA</div>
-			<div class="col-xs-4 right">
+			<div class="col-xs-7">KDA</div>
+			<div class="col-xs-5 right">
 				<?php echo round($champions_data->$id->cumulatedKills / $champions_data->$id->played, 1); ?> /
 				<?php echo round($champions_data->$id->cumulatedDeaths / $champions_data->$id->played, 1); ?> /
 				<?php echo round($champions_data->$id->cumulatedAssists / $champions_data->$id->played, 1); ?>
@@ -223,89 +223,89 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Level reached</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedMaxLevel / $champions_data->$id->played); ?></div>
+			<div class="col-xs-7">Level reached</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedMaxLevel / $champions_data->$id->played); ?></div>
 		</div>
 
 		<h4 class="center">Offence</h4>
 
 		<div class="row">
-			<div class="col-xs-8">First blood</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedFirstBloodKill / $champions_data->$id->played * 100, 1); ?>%</div>
+			<div class="col-xs-7">First blood</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedFirstBloodKill / $champions_data->$id->played * 100, 1); ?>%</div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Damage dealt to champions</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedTotalDamageDealtToChampions / $champions_data->$id->played); ?></div>
+			<div class="col-xs-7">Damage dealt to champions</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedTotalDamageDealtToChampions / $champions_data->$id->played); ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Magic damage dealt to champions</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedMagicDamageDealtToChampions / $champions_data->$id->played); ?></div>
+			<div class="col-xs-7">Magic damage dealt to champions</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedMagicDamageDealtToChampions / $champions_data->$id->cumulatedTotalDamageDealtToChampions * 100, 1); ?>%</div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Physical damages dealt to champions</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedPhysicalDamageDealtToChampions / $champions_data->$id->played); ?></div>
+			<div class="col-xs-7">Physical damages dealt to champions</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedPhysicalDamageDealtToChampions / $champions_data->$id->cumulatedTotalDamageDealtToChampions * 100, 1); ?>%</div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">True damage dealt to champions</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedTrueDamageDealtToChampions / $champions_data->$id->played); ?></div>
+			<div class="col-xs-7">True damage dealt to champions</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedTrueDamageDealtToChampions / $champions_data->$id->cumulatedTotalDamageDealtToChampions * 100, 1); ?>%</div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max critical strike</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedMaxCriticalStrike / $champions_data->$id->played); ?></div>
+			<div class="col-xs-7">Max critical strike</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedMaxCriticalStrike / $champions_data->$id->played); ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Pentakills</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedPentaKills / $champions_data->$id->played, 4); ?></div>
+			<div class="col-xs-7">Pentakills</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedPentaKills / $champions_data->$id->played, 4); ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Quadrakills</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedQuadraKills / $champions_data->$id->played, 4); ?></div>
+			<div class="col-xs-7">Quadrakills</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedQuadraKills / $champions_data->$id->played, 4); ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Triplekills</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedTripleKills / $champions_data->$id->played, 2); ?></div>
+			<div class="col-xs-7">Triplekills</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedTripleKills / $champions_data->$id->played, 2); ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Doublekills</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedDoubleKills / $champions_data->$id->played, 2); ?></div>
+			<div class="col-xs-7">Doublekills</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedDoubleKills / $champions_data->$id->played, 2); ?></div>
 		</div>
 
-		<h4 class="center">Defence</h4>
+		<h4 class="center">Defense</h4>
 
 		<div class="row">
-			<div class="col-xs-8">Damage taken</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedTotalDamageTaken / $champions_data->$id->played); ?></div>
-		</div>
-
-		<div class="row">
-			<div class="col-xs-8">Magic damage taken</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedMagicDamageTaken / $champions_data->$id->played); ?></div>
+			<div class="col-xs-7">Damage taken</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedTotalDamageTaken / $champions_data->$id->played); ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Physical damage taken</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedPhysicalDamageTaken / $champions_data->$id->played); ?></div>
+			<div class="col-xs-7">Magic damage taken</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedMagicDamageTaken / $champions_data->$id->cumulatedTotalDamageTaken * 100, 1); ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">True damage taken</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedTrueDamageTaken / $champions_data->$id->played); ?></div>
+			<div class="col-xs-7">Physical damage taken</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedPhysicalDamageTaken / $champions_data->$id->cumulatedTotalDamageTaken * 100, 1); ?></div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-7">True damage taken</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedTrueDamageTaken / $champions_data->$id->cumulatedTotalDamageTaken * 100, 1); ?></div>
 		</div>
 
 		<h4 class="center">Utility</h4>
 
 		<div class="row">
-			<div class="col-xs-8">Crowd Control Dealt</div>
-			<div class="col-xs-4 right">
+			<div class="col-xs-7">Crowd Control Dealt</div>
+			<div class="col-xs-5 right">
 				<?php
 				$dt			 = new DateTime();
 				$dt->add(new DateInterval('PT' . round($champions_data->$id->cumulatedTimeCrowdControlDealt / $champions_data->$id->played) . 'S'));
@@ -316,121 +316,136 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Total Heal</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedTotalHeal / $champions_data->$id->played); ?></div>
+			<div class="col-xs-7">Total Heal</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedTotalHeal / $champions_data->$id->played); ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Inhibitor Kills</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedInhibitorKills / $champions_data->$id->played, 2); ?></div>
+			<div class="col-xs-7">Inhibitor Kills</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedInhibitorKills / $champions_data->$id->played, 2); ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Tower Kills</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedTowerKills / $champions_data->$id->played, 2); ?></div>
+			<div class="col-xs-7">Tower Kills</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedTowerKills / $champions_data->$id->played, 2); ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Vision Wards Bought</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedVisionWardsBought / $champions_data->$id->played, 2); ?></div>
+			<div class="col-xs-7">Vision Wards Bought</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedVisionWardsBought / $champions_data->$id->played, 2); ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Sight Wards Bought</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedSightWardsBought / $champions_data->$id->played, 2); ?></div>
+			<div class="col-xs-7">Sight Wards Bought</div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedSightWardsBought / $champions_data->$id->played, 2); ?></div>
 		</div>
 
 		<h2 class="center">Performances</h2>
 
 		<div class="row">
-			<div class="col-xs-8">Max Kills</div>
-			<div class="col-xs-4 right"><?php echo $champions_data->$id->maxKills; ?></div>
+			<div class="col-xs-7">Max Kills</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxKills; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max Deaths</div>
-			<div class="col-xs-4 right"><?php echo $champions_data->$id->maxDeaths; ?></div>
+			<div class="col-xs-7">Max Deaths</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxDeaths; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max Assists</div>
-			<div class="col-xs-4 right"><?php echo $champions_data->$id->maxAssists; ?></div>
+			<div class="col-xs-7">Max Assists</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxAssists; ?></div>
 		</div>
 
-		<h4 class="center">Offence</h4>
+		<h4 class="center">Offense</h4>
 
 		<div class="row">
-			<div class="col-xs-8">Max Damage Dealt</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->maxTotalDamageDealtToChampions); ?></div>
-		</div>
-
-		<div class="row">
-			<div class="col-xs-8">Max Magic Damage Dealt</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->maxMagicDamageDealtToChampions); ?></div>
+			<div class="col-xs-7">Max Damage Dealt</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxTotalDamageDealtToChampions; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max Physical Damage Dealt</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->maxPhysicalDamageDealtToChampions); ?></div>
+			<div class="col-xs-7">Max Magic Damage Dealt</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxMagicDamageDealtToChampions; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max True Damage Dealt</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->maxTrueDamageDealtToChampions); ?></div>
+			<div class="col-xs-7">Max Physical Damage Dealt</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxPhysicalDamageDealtToChampions; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max Critical Strike</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->maxCriticalStrike); ?></div>
+			<div class="col-xs-7">Max True Damage Dealt</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxTrueDamageDealtToChampions; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max Killing Spree</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->maxKillingSpree); ?></div>
+			<div class="col-xs-7">Max Critical Strike</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxCriticalStrike; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max Multi Kill</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->maxMultiKill); ?></div>
+			<div class="col-xs-7">Max Killing Spree</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxKillingSpree; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max Unreal Kills</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->maxUnrealKills); ?></div>
+			<div class="col-xs-7">Max Multi Kill</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxMultiKill; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max Pentakills</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->maxPentaKills); ?></div>
+			<div class="col-xs-7">Max Unreal Kills</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxUnrealKills; ?></div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-7">Max Pentakills</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxPentaKills; ?></div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-7">Max Quadrakills</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxQuadraKills; ?></div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-7">Max Triplekills</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxPentaKills; ?></div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-7">Max Doublekills</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxPentaKills; ?></div>
 		</div>
 
 		<h4 class="center">Defence</h4>
 
 		<div class="row">
-			<div class="col-xs-8">Max Damage Taken</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->maxTotalDamageTaken); ?></div>
+			<div class="col-xs-7">Max Damage Taken</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxTotalDamageTaken; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max True Damage Taken</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->maxTrueDamageTaken); ?></div>
+			<div class="col-xs-7">Max True Damage Taken</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxTrueDamageTaken; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max Physical Damage Taken</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->maxPhysicalDamageTaken); ?></div>
+			<div class="col-xs-7">Max Physical Damage Taken</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxPhysicalDamageTaken; ?></div>
 		</div>
 
 		<h4 class="center">Utility</h4>
 
 		<div class="row">
-			<div class="col-xs-8">Max Heal</div>
-			<div class="col-xs-4 right"><?php echo $champions_data->$id->maxTotalHeal; ?></div>
+			<div class="col-xs-7">Max Heal</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxTotalHeal; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max Crowd Control Dealt</div>
-			<div class="col-xs-4 right">
+			<div class="col-xs-7">Max Crowd Control Dealt</div>
+			<div class="col-xs-5 right">
 				<?php
 				$dt			 = new DateTime();
 				$dt->add(new DateInterval('PT' . $champions_data->$id->maxTimeCrowdControlDealt . 'S'));
@@ -441,23 +456,23 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max Inhibitor Kills</div>
-			<div class="col-xs-4 right"><?php echo $champions_data->$id->maxInhibitorKills; ?></div>
+			<div class="col-xs-7">Max Inhibitor Kills</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxInhibitorKills; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max Tower Kills</div>
-			<div class="col-xs-4 right"><?php echo $champions_data->$id->maxTowerKills; ?></div>
+			<div class="col-xs-7">Max Tower Kills</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxTowerKills; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max Vision Wards Bought</div>
-			<div class="col-xs-4 right"><?php echo $champions_data->$id->maxVisionWardsBought; ?></div>
+			<div class="col-xs-7">Max Vision Wards Bought</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxVisionWardsBought; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-8">Max Sight Wards Bought</div>
-			<div class="col-xs-4 right"><?php echo $champions_data->$id->maxSightWardsBought; ?></div>
+			<div class="col-xs-7">Max Sight Wards Bought</div>
+			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxSightWardsBought; ?></div>
 		</div>
 	</div>
 </div>
