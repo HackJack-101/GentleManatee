@@ -1,3 +1,6 @@
+ErrorDocument 404     /pages/error.php?code=404
+ErrorDocument 500     /pages/error.php?code=500
+ErrorDocument 403     /pages/error.php?code=403
 RewriteEngine On
 RewriteRule ^champions$ pages/champions.php [L,QSA]
 RewriteRule ^champions/$ pages/champions.php [L,QSA]

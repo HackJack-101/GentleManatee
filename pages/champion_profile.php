@@ -1,9 +1,12 @@
 <?php
 if (empty($_GET['name']))
-	die('NURF');
+{
+	$_GET['code'] = 404;
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/pages/error.php';
+	exit();
+}
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/champions.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/config/debug.php';
 
 $id = 0;
 foreach ($champions_info as $key => $value)
@@ -13,7 +16,11 @@ foreach ($champions_info as $key => $value)
 }
 
 if ($id == 0)
-	die('NURF');
+{
+	$_GET['code'] = 404;
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/pages/error.php';
+	exit();
+}
 
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/bans.php';
