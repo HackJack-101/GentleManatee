@@ -33,11 +33,15 @@ $leastAvgDeaths	 = array();
 $highestGold	 = array();
 $leastAvgGold	 = array();
 /* * ************* Average Assists  ************** */
-$mostAssists	 = array();
+$maxAssists	 = array();
 /* * ************* Average Wards bought  ************** */
 $mostWards		 = array();
 /* * ************* Average CC  ************** */
 $cc				 = array();
+/* * ************* Max minions ************** */
+$minions		 = array();
+/* * ************* Max killing spree ************** */
+$killingSprees	 = array();
 
 foreach ($champions_data as $champion)
 {
@@ -53,14 +57,16 @@ foreach ($champions_data as $champion)
 	$bestTanking[$champion->championId]		 = $champion->maxTotalDamageTaken;
 	$highestGold[$champion->championId]		 = $champion->maxGoldEarned;
 	$leastAvgGold[$champion->championId]	 = $champion->cumulatedGoldEarned / $champion->played;
-	$mostAssists[$champion->championId]		 = $champion->cumulatedAssists / $champion->played;
+	$maxAssists[$champion->championId]		 = $champion->maxAssists;
 	$mostWards[$champion->championId]		 = ($champion->cumulatedVisionWardsBought + $champion->cumulatedSightWardsBought) / $champion->played;
 	$inhib[$champion->championId]			 = $champion->maxInhibitorKills;
 	$heal[$champion->championId]			 = 0;
 	if ($champion->cumulatedUnitsHealed / $champion->played >= 2) /*	 * * Avoiding self healers like Sion or Zac ** */
 		$heal[$champion->championId]			 = $champion->cumulatedTotalHeal / $champion->played;
-	$selfHeal[$champion->championId]		 = ($champion->cumulatedTotalHeal / $champion->played) / round($champion->cumulatedUnitsHealed / $champion->played);
-	$cc[$champion->championId]				 = $champion->cumulatedTimeCrowdControlDealt / $champion->played;
+	$selfHeal[$champion->championId]		 = $champion->maxTotalHeal / round($champion->cumulatedUnitsHealed / $champion->played);
+	$cc[$champion->championId]				 = $champion->maxTimeCrowdControlDealt;
+	$minions[$champion->championId]			 = $champion->maxMinionKills;
+	$killingSprees[$champion->championId]	 = $champion->maxKillingSpree;
 }
 
 $lucidityBought = 0;
@@ -70,6 +76,14 @@ foreach ($champions_items as $item)
 	foreach ($lucidityIDs as $id)
 		if (!empty($item->$id))
 			$lucidityBought += $item->$id;
+}
+
+$tearBought = 0;
+foreach ($champions_items as $item)
+{
+	$tearID = 3070;
+	if (isset($item->$tearID))
+		$tearBought += $item->$tearID;
 }
 
 $manaPotionBought = 0;
@@ -99,10 +113,12 @@ arsort($heal);
 arsort($maxDeaths);
 arsort($mostAvgDeaths);
 arsort($highestGold);
-arsort($mostAssists);
+arsort($maxAssists);
 arsort($selfHeal);
 arsort($mostWards);
 arsort($cc);
+arsort($minions);
+arsort($killingSprees);
 /* * * ascending order ** */
 asort($leastPicks);
 asort($winrates_asc);

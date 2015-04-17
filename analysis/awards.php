@@ -14,12 +14,14 @@ reset($maxDeaths);
 reset($mostAvgDeaths);
 reset($leastAvgGold);
 reset($highestGold);
-reset($mostAssists);
+reset($maxAssists);
 reset($mostWards);
 reset($inhib);
 reset($heal);
 reset($selfHeal);
 reset($cc);
+reset($minions);
+reset($killingSprees);
 /* * ************* Get the first key  ************** */
 $winnerKey		 = key($winners);
 $loserKey		 = key($losers);
@@ -36,9 +38,11 @@ $healerKey		 = key($heal);
 $selfHealerKey	 = key($selfHeal);
 $poorGuyKey		 = key($leastAvgGold);
 $richGuyKey		 = key($highestGold);
-$goodGuyKey		 = key($mostAssists);
+$goodGuyKey		 = key($maxAssists);
 $wardKey		 = key($mostWards);
 $ccGuyKey		 = key($cc);
+$farmerKey		 = key($minions);
+$killerGuyKey	 = key($killingSprees);
 /* * ************* Extract the data  ************** */
 $winner			 = $champions_info->$winnerKey;
 $loser			 = $champions_info->$loserKey;
@@ -58,4 +62,6 @@ $richGuy		 = $champions_info->$richGuyKey;
 $goodGuy		 = $champions_info->$goodGuyKey;
 $ccGuy			 = $champions_info->$ccGuyKey;
 $ward			 = $champions_info->$wardKey;
+$farmer			 = $champions_info->$farmerKey;
+$killer			 = $champions_info->$killerGuyKey;
 ?>

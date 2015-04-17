@@ -264,6 +264,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 						</div>
 						<div class="description">
 							<span class="awardName">Hulk Award</span> for highest inhibitor kills during one game in URF
+							<div class="quote"><?php echo array_values($inhib)[0] ?> is enough</div>
 						</div>
 					</div>
 				</div>
@@ -278,6 +279,37 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 						</div>
 						<div class="description">
 							<span class="awardName">Immortal Award</span> for highest self heal per game in URF
+							<div class="quote">I can't help myself</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $killer->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $killer->key ?>.png" alt="<?php echo $killer->name ?>"/>
+								<?php echo $killer->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Highlander Award</span> for highest killing spree in one URF game
+							<div class="quote">It's easier than farming minions.</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $farmer->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $farmer->key ?>.png" alt="<?php echo $farmer->name ?>"/>
+								<?php echo $farmer->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Farmer Award</span> for highest minions count in one URF game
+							<div class="quote">Is <?php echo array_values($minions)[0] ?> creeps killed a genocide?</div>
 						</div>
 					</div>
 				</div>
@@ -323,7 +355,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Good Guy Award</span> for highest assists per game in URF
+							<span class="awardName">Good Guy Award</span> for most assists in one URF game
+							<div class="quote">I missed <?php echo array_values($maxAssists)[0] ?> kills…</div>
 						</div>
 					</div>
 				</div>
@@ -338,6 +371,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 						</div>
 						<div class="description">
 							<span class="awardName">Big Brother Award</span> for biggest amount of bought wards per game in URF
+							<div class="quote">I'm watching you</div>
 						</div>
 					</div>
 				</div>
@@ -366,7 +400,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Annoying Award</span> for highest time crowd control dealt per game in URF
+							<span class="awardName">Annoying Award</span> for highest time crowd control dealt in one URF game
+							<div class="quote">Take it slow…</div>
 						</div>
 					</div>
 				</div>
@@ -412,7 +447,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Uselessness Spell Award</span> for being taken <?php echo $clarityTaken ?> times in <?php echo $teams_data->red->wins + $teams_data->blue->wins; ?> URF games
+							<span class="awardName">Useless Spell Award</span> for being taken <?php echo $clarityTaken ?> times in <?php echo $teams_data->red->wins + $teams_data->blue->wins; ?> URF games
 							<div class="quote"><a href="https://youtu.be/8N_tupPBtWQ" target="_blank">Mana Mana!</a></div>
 						</div>
 					</div>
@@ -427,8 +462,23 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Uselessness Potion Award</span> for being bought <?php echo $manaPotionBought ?> times in <?php echo $teams_data->red->wins + $teams_data->blue->wins; ?> URF games
+							<span class="awardName">Useless Potion Award</span> for being bought <?php echo $manaPotionBought ?> times in <?php echo $teams_data->red->wins + $teams_data->blue->wins; ?> URF games
 							<div class="quote"><a href="https://youtu.be/8N_tupPBtWQ" target="_blank">Mana Mana! (bis)</a></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="#useless" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/item/3070.png" alt="Tear of the Goddess"/>
+								Tear of the Goddess
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName"> Award of Unfinishedness</span> <?php echo $tearBought ?> times in <?php echo $teams_data->red->wins + $teams_data->blue->wins; ?> URF games
+							<div class="quote">Cry me a river</div>
 						</div>
 					</div>
 				</div>
