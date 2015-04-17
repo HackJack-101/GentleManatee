@@ -116,7 +116,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 				{
 					?>
 					<div class="spell">
-						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/spell/<?php echo($spells_info->$key->key) ?>.png" alt="<?php echo $spells_info->$key->name; ?>" title="<?php echo $spells_info->$key->name . ' - ' . $value; ?> times"/>
+						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/spell/<?php echo($spells_info->$key->key) ?>.png" alt="<?php echo $spells_info->$key->name; ?>" title="<?php echo $spells_info->$key->name; ?>"/>
 						<span class="spellPercentage"><?php echo round($value / $champions_data->$id->played * 100, 2); ?>%</span>
 					</div>
 					<?php
@@ -140,7 +140,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 					{
 						?>
 						<div class="item">
-							<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/item/<?php echo($items_info->$key->key) ?>.png" alt="<?php echo $items_info->$key->name; ?>" title="<?php echo $items_info->$key->name . ' - ' . $value; ?> times"/>
+							<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/item/<?php echo($items_info->$key->key) ?>.png" alt="<?php echo $items_info->$key->name; ?>" title="<?php echo $items_info->$key->name; ?>"/>
 							<span class="itemPercentage"><?php echo round($value / $champions_data->$id->played * 100, 2); ?>%</span>
 						</div>
 						<?php
@@ -170,24 +170,48 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 
 		<h2 class="center">Lanes</h2>
 
+		<h4 class="center">Won</h4>
+
 		<div class="row">
 			<div class="col-xs-7">Top</div>
-			<div class="col-xs-5 right"><?php echo round($lanes_data->$id->top / $lanes_data->$id->total * 100, 1) ?>%</div>
+			<div class="col-xs-5 right"><?php echo round($lanes_data->$id->topWon / $lanes_data->$id->total * 100, 1) ?>%</div>
 		</div>
 
 		<div class="row">
 			<div class="col-xs-7">Jungle</div>
-			<div class="col-xs-5 right"><?php echo round($lanes_data->$id->jungle / $lanes_data->$id->total * 100, 1) ?>%</div>
+			<div class="col-xs-5 right"><?php echo round($lanes_data->$id->jungleWon / $lanes_data->$id->total * 100, 1) ?>%</div>
 		</div>
 
 		<div class="row">
 			<div class="col-xs-7">Mid</div>
-			<div class="col-xs-5 right"><?php echo round($lanes_data->$id->mid / $lanes_data->$id->total * 100, 1) ?>%</div>
+			<div class="col-xs-5 right"><?php echo round($lanes_data->$id->midWon / $lanes_data->$id->total * 100, 1) ?>%</div>
 		</div>
 
 		<div class="row">
 			<div class="col-xs-7">Bot</div>
-			<div class="col-xs-5 right"><?php echo round($lanes_data->$id->bottom / $lanes_data->$id->total * 100, 1) ?>%</div>
+			<div class="col-xs-5 right"><?php echo round($lanes_data->$id->bottomWon / $lanes_data->$id->total * 100, 1) ?>%</div>
+		</div>
+
+		<h4 class="center">Lost</h4>
+
+		<div class="row">
+			<div class="col-xs-7">Top</div>
+			<div class="col-xs-5 right"><?php echo round($lanes_data->$id->topLost / $lanes_data->$id->total * 100, 1) ?>%</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-7">Jungle</div>
+			<div class="col-xs-5 right"><?php echo round($lanes_data->$id->jungleLost / $lanes_data->$id->total * 100, 1) ?>%</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-7">Mid</div>
+			<div class="col-xs-5 right"><?php echo round($lanes_data->$id->midLost / $lanes_data->$id->total * 100, 1) ?>%</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-7">Bot</div>
+			<div class="col-xs-5 right"><?php echo round($lanes_data->$id->bottomLost / $lanes_data->$id->total * 100, 1) ?>%</div>
 		</div>
 
 		<h2 class="center">Roles</h2>
@@ -234,7 +258,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedMaxLevel / $champions_data->$id->played); ?></div>
 		</div>
 
-		<h4 class="center">Offence</h4>
+		<h4 class="center">Offense</h4>
 
 		<div class="row">
 			<div class="col-xs-7">First blood</div>
@@ -426,7 +450,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 			<div class="col-xs-5 right"><?php echo $champions_data->$id->maxPentaKills; ?></div>
 		</div>
 
-		<h4 class="center">Defence</h4>
+		<h4 class="center">Defense</h4>
 
 		<div class="row">
 			<div class="col-xs-7">Max Damage Taken</div>
