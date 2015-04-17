@@ -109,10 +109,27 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Press R Award</span> for highest damage dealt per game in URF
+							<span class="awardName">Press R Award</span> for highest damage dealt in one URF game
+							<div class="quote">Only <?php echo round(array_values($bestDPS)[0] / 1000); ?>k…</div>
 						</div>
 					</div>
 				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $richGuy->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $richGuy->key ?>.png" alt="<?php echo $richGuy->name ?>"/>
+								<?php echo $richGuy->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Rich Guy Award</span> for highest gold earned in one UFR game
+							<div class="quote">Can I desposit <?php echo round(array_values($highestGold)[0] / 1000); ?>k gold?</div>
+						</div>
+					</div>
+				</div>				
+
 			</div> 
 		</div> 
 
@@ -169,6 +186,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 						</div>
 						<div class="description">
 							<span class="awardName">Not Hurting a Fly Award</span> for lowest damage dealt per game in URF
+							<div class="quote">At least, I killed one minion!</div>
+
 						</div>
 					</div>
 				</div>
@@ -182,7 +201,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Teemo Award</span> for highest number of death in URF
+							<span class="awardName">Teemo Award</span> for highest number of deaths in URF
+							<div class="quote"><?php echo array_values($maxDeaths)[0] ?> souls for Thresh and counting…</div>
 						</div>
 					</div>
 				</div>
@@ -197,7 +217,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 						</div>
 						<div class="description">
 							<span class="awardName">Marked Yordle Award</span> for highest number of deaths per game in URF
-							<div class="quote">Stop focus me!</div>
+							<div class="quote">Stop focusing me!</div>
 						</div>
 					</div>
 				</div>
@@ -228,8 +248,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Tank Award</span> for highest damage taken per game in URF
-							<div class="quote">MUUUNNNNDOOOOO!</div>
+							<span class="awardName">Tank Award</span> for highest damage taken in one URF game
+							<div class="quote">It tickles!</div>
 						</div>
 					</div>
 				</div>
@@ -243,7 +263,21 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Hulk Award</span> for highest inhibitor kills during a game in URF
+							<span class="awardName">Hulk Award</span> for highest inhibitor kills during one game in URF
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $selfHealer->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $selfHealer->key ?>.png" alt="<?php echo $selfHealer->name ?>"/>
+								<?php echo $selfHealer->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Immortal Award</span> for highest self heal per game in URF
 						</div>
 					</div>
 				</div>
@@ -276,6 +310,63 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 						<div class="description">
 							<span class="awardName">Red Cross Award</span> for highest heal dealt per game in URF
 							<div class="quote"><a href="https://youtu.be/9i3KQeieQG0" target="_blank">Call 911! Didou didou didou!</a></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $goodGuy->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $goodGuy->key ?>.png" alt="<?php echo $goodGuy->name ?>"/>
+								<?php echo $goodGuy->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Good Guy Award</span> for highest assists per game in URF
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $ward->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $ward->key ?>.png" alt="<?php echo $ward->name ?>"/>
+								<?php echo $ward->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Big Brother Award</span> for biggest amount of bought wards per game in URF
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $poorGuy->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $poorGuy->key ?>.png" alt="<?php echo $poorGuy->name ?>"/>
+								<?php echo $poorGuy->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Poor Guy Award</span> for lowest gold earned per game in URF
+							<div class="quote">I'm a support…</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="/champions/<?php echo $ccGuy->name ?>" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/<?php echo $ccGuy->key ?>.png" alt="<?php echo $ccGuy->name ?>"/>
+								<?php echo $ccGuy->name ?>
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Annoying Award</span> for highest time crowd control dealt per game in URF
 						</div>
 					</div>
 				</div>
@@ -323,6 +414,21 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 						<div class="description">
 							<span class="awardName">Uselessness Spell Award</span> for being taken <?php echo $clarityTaken ?> times in <?php echo $teams_data->red->wins + $teams_data->blue->wins; ?> URF games
 							<div class="quote"><a href="https://youtu.be/8N_tupPBtWQ" target="_blank">Mana Mana!</a></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 award">
+						<div class="portrait">
+							<a href="#useless" class="name">
+								<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/item/2004.png" alt="Mana Potion"/>
+								Mana Potion
+							</a>
+						</div>
+						<div class="description">
+							<span class="awardName">Uselessness Potion Award</span> for being bought <?php echo $manaPotionBought ?> times in <?php echo $teams_data->red->wins + $teams_data->blue->wins; ?> URF games
+							<div class="quote"><a href="https://youtu.be/8N_tupPBtWQ" target="_blank">Mana Mana! (bis)</a></div>
 						</div>
 					</div>
 				</div>

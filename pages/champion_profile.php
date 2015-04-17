@@ -110,7 +110,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 					?>
 					<div class="spell">
 						<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/spell/<?php echo($spells_info->$key->key) ?>.png" alt="<?php echo $spells_info->$key->name; ?>" title="<?php echo $spells_info->$key->name . ' - ' . $value; ?> times"/>
-						<span class="spellPercentage"><?php echo round($value / ($spellsTotal / 2) * 100, 2); ?>%</span>
+						<span class="spellPercentage"><?php echo round($value / $champions_data->$id->played * 100, 2); ?>%</span>
 					</div>
 					<?php
 				}
@@ -134,7 +134,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 						?>
 						<div class="item">
 							<img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/item/<?php echo($items_info->$key->key) ?>.png" alt="<?php echo $items_info->$key->name; ?>" title="<?php echo $items_info->$key->name . ' - ' . $value; ?> times"/>
-							<span class="itemPercentage"><?php echo round($value / ($spellsTotal / 2) * 100, 2); ?>%</span>
+							<span class="itemPercentage"><?php echo round($value / $champions_data->$id->played * 100, 2); ?>%</span>
 						</div>
 						<?php
 					}
@@ -162,49 +162,49 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 		</div>
 
 		<h2 class="center">Lanes</h2>
-		
+
 		<div class="row">
 			<div class="col-xs-8">Top</div>
 			<div class="col-xs-4 right"><?php echo round($lanes_data->$id->top / $lanes_data->$id->total * 100, 1) ?>%</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col-xs-8">Jungle</div>
 			<div class="col-xs-4 right"><?php echo round($lanes_data->$id->jungle / $lanes_data->$id->total * 100, 1) ?>%</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col-xs-8">Mid</div>
 			<div class="col-xs-4 right"><?php echo round($lanes_data->$id->mid / $lanes_data->$id->total * 100, 1) ?>%</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col-xs-8">Bot</div>
 			<div class="col-xs-4 right"><?php echo round($lanes_data->$id->bottom / $lanes_data->$id->total * 100, 1) ?>%</div>
 		</div>
 
 		<h2 class="center">Roles</h2>
-		
+
 		<div class="row">
 			<div class="col-xs-8">Duo Support</div>
 			<div class="col-xs-4 right"><?php echo round($roles_data->$id->duoSupport / $roles_data->$id->total * 100, 1) ?>%</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col-xs-8">Duo Carry</div>
 			<div class="col-xs-4 right"><?php echo round($roles_data->$id->duoCarry / $roles_data->$id->total * 100, 1) ?>%</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col-xs-8">Duo</div>
 			<div class="col-xs-4 right"><?php echo round($roles_data->$id->duo / $roles_data->$id->total * 100, 1) ?>%</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col-xs-8">Solo</div>
 			<div class="col-xs-4 right"><?php echo round($roles_data->$id->solo / $roles_data->$id->total * 100, 1) ?>%</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col-xs-8">None</div>
 			<div class="col-xs-4 right"><?php echo round($roles_data->$id->none / $roles_data->$id->total * 100, 1) ?>%</div>
@@ -305,7 +305,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 
 		<div class="row">
 			<div class="col-xs-8">Crowd Control Dealt</div>
-			<div class="col-xs-4 right"><?php echo round($champions_data->$id->cumulatedTimeCrowdControlDealt / $champions_data->$id->played); ?>s</div>
+			<div class="col-xs-4 right">
+				<?php
+				$dt			 = new DateTime();
+				$dt->add(new DateInterval('PT' . round($champions_data->$id->cumulatedTimeCrowdControlDealt / $champions_data->$id->played) . 'S'));
+				$interval	 = $dt->diff(new DateTime());
+				echo $interval->format("%h hours %i minutes and %s seconds");
+				?>
+			</div>
 		</div>
 
 		<div class="row">
@@ -423,7 +430,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 
 		<div class="row">
 			<div class="col-xs-8">Max Crowd Control Dealt</div>
-			<div class="col-xs-4 right"><?php echo $champions_data->$id->maxTimeCrowdControlDealt; ?>s</div>
+			<div class="col-xs-4 right">
+				<?php
+				$dt			 = new DateTime();
+				$dt->add(new DateInterval('PT' . $champions_data->$id->maxTimeCrowdControlDealt . 'S'));
+				$interval	 = $dt->diff(new DateTime());
+				echo $interval->format("%h hours %i minutes and %s seconds");
+				?>
+			</div>
 		</div>
 
 		<div class="row">

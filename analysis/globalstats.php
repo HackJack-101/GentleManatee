@@ -21,13 +21,23 @@ $worstDPS		 = array();
 $bestTanking	 = array();
 /* * ************* Inhib down  ************** */
 $inhib			 = array();
-/* * ************* Heal  ************** */
+/* * ************* Average Heal  ************** */
 $heal			 = array();
+$selfHeal		 = array();
 /* * ************* Flat deaths  ************** */
-$mostDeaths		 = array();
+$maxDeaths		 = array();
 /* * ************* Average deaths  ************** */
 $mostAvgDeaths	 = array();
 $leastAvgDeaths	 = array();
+/* * ************* Average gold  ************** */
+$highestGold	 = array();
+$leastAvgGold	 = array();
+/* * ************* Average Assists  ************** */
+$mostAssists	 = array();
+/* * ************* Average Wards bought  ************** */
+$mostWards		 = array();
+/* * ************* Average CC  ************** */
+$cc				 = array();
 
 foreach ($champions_data as $champion)
 {
@@ -35,16 +45,22 @@ foreach ($champions_data as $champion)
 	$leastPicks[$champion->championId]		 = $champion->played;
 	$winrates_desc[$champion->championId]	 = $champion->wins / $champion->played;
 	$winrates_asc[$champion->championId]	 = $champion->wins / $champion->played;
-	$bestDPS[$champion->championId]			 = $champion->cumulatedTotalDamageDealtToChampions / $champion->played;
+	$bestDPS[$champion->championId]			 = $champion->maxTotalDamageDealtToChampions;
 	$worstDPS[$champion->championId]		 = $champion->cumulatedTotalDamageDealtToChampions / $champion->played;
-	$mostDeaths[$champion->championId]		 = $champion->cumulatedDeaths;
+	$maxDeaths[$champion->championId]		 = $champion->maxDeaths;
 	$mostAvgDeaths[$champion->championId]	 = $champion->cumulatedDeaths / $champion->played;
 	$leastAvgDeaths[$champion->championId]	 = $champion->cumulatedDeaths / $champion->played;
-	$bestTanking[$champion->championId]		 = $champion->cumulatedTotalDamageTaken / $champion->played;
+	$bestTanking[$champion->championId]		 = $champion->maxTotalDamageTaken;
+	$highestGold[$champion->championId]		 = $champion->maxGoldEarned;
+	$leastAvgGold[$champion->championId]	 = $champion->cumulatedGoldEarned / $champion->played;
+	$mostAssists[$champion->championId]		 = $champion->cumulatedAssists / $champion->played;
+	$mostWards[$champion->championId]		 = ($champion->cumulatedVisionWardsBought + $champion->cumulatedSightWardsBought) / $champion->played;
 	$inhib[$champion->championId]			 = $champion->maxInhibitorKills;
 	$heal[$champion->championId]			 = 0;
 	if ($champion->cumulatedUnitsHealed / $champion->played >= 2) /*	 * * Avoiding self healers like Sion or Zac ** */
 		$heal[$champion->championId]			 = $champion->cumulatedTotalHeal / $champion->played;
+	$selfHeal[$champion->championId]		 = ($champion->cumulatedTotalHeal / $champion->played) / round($champion->cumulatedUnitsHealed / $champion->played);
+	$cc[$champion->championId]				 = $champion->cumulatedTimeCrowdControlDealt / $champion->played;
 }
 
 $lucidityBought = 0;
@@ -54,6 +70,14 @@ foreach ($champions_items as $item)
 	foreach ($lucidityIDs as $id)
 		if (!empty($item->$id))
 			$lucidityBought += $item->$id;
+}
+
+$manaPotionBought = 0;
+foreach ($champions_items as $item)
+{
+	$potionID = 2004;
+	if (isset($item->$potionID))
+		$manaPotionBought += $item->$potionID;
 }
 
 $clarityTaken = 0;
@@ -72,13 +96,19 @@ arsort($bestDPS);
 arsort($bestTanking);
 arsort($inhib);
 arsort($heal);
-arsort($mostDeaths);
+arsort($maxDeaths);
 arsort($mostAvgDeaths);
+arsort($highestGold);
+arsort($mostAssists);
+arsort($selfHeal);
+arsort($mostWards);
+arsort($cc);
 /* * * ascending order ** */
 asort($leastPicks);
 asort($winrates_asc);
 asort($worstDPS);
 asort($leastAvgDeaths);
+asort($leastAvgGold);
 
 /* * ************* Slicing  ************** */
 $mostPicks	 = array_slice($picks_desc, 0, 10, true);
