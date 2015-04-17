@@ -214,3 +214,15 @@ div.award .quote::before
 	background: url('/images/Namitee.jpg') 50% 0 no-repeat fixed;
 	background-size: cover;
 }
+
+.thanks {
+	padding: 1em;
+	font-size: 1.2em;
+}
+
+#donation {
+	font-family: 'Megrim', cursive;
+	text-align: center;
+	font-weight: 600;
+	font-size: 2.8em;
+}

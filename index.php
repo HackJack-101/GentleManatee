@@ -14,6 +14,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 		<link href='http://fonts.googleapis.com/css?family=Limelight' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Megrim' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="/style/awards.css"/>
 
 		<meta name="description" content="URF URF URF"/>
@@ -186,7 +187,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 						</div>
 						<div class="description">
 							<span class="awardName">Not Hurting a Fly Award</span> for lowest damage dealt per game in URF
-							<div class="quote">At least, I killed one minion!</div>
+							<div class="quote">But… I killed one minion!</div>
 
 						</div>
 					</div>
@@ -201,7 +202,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Teemo Award</span> for highest number of deaths in URF
+							<span class="awardName">Teemo Award</span> for highest number of deaths in one URF game
 							<div class="quote"><?php echo array_values($maxDeaths)[0] ?> souls for Thresh and counting…</div>
 						</div>
 					</div>
@@ -263,7 +264,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 							</a>
 						</div>
 						<div class="description">
-							<span class="awardName">Hulk Award</span> for highest inhibitor kills during one game in URF
+							<span class="awardName">Hulk Award</span> for highest inhibitor destroyed during one game in URF
 							<div class="quote"><?php echo array_values($inhib)[0] ?> is enough</div>
 						</div>
 					</div>
@@ -498,11 +499,23 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/analysis/awards.php';
 
 		<div class="slide" id="slide13">
 			<div class="content container">
+
 				<div class="row reward">
-					<div class="col-md-12">
-						It's not over buddies ;)
+					<div class="col-md-12 thanks">
+						<div id="donation"><?php echo number_format($totalGoldEarned - $totalGoldSpent) ?> gold</div>
+						Thanks to all of you, summoners! The gold you didn't spend will be used as a donation for a greatful association.<br/>
+						Let's me introduce you, the SWAG: "Stop Warwick from Attacking Gentlemanatees".<br/>
+						The aim of this asssociation is to protect manatees, in particular, the progeny of <b>Urf The First</b> (<i>1st April 2010 - 1st April 2010</i>).
 					</div>
 				</div>
+
+				<div class="row reward">
+					<div class="col-md-12 thanks">
+						Thanks to Riot Games! This year URF mode was more balanced and we really appreciated the health cost reduction.<br/>
+						And, of course thank you for this challenge ;-)
+					</div>
+				</div>
+
 			</div> 
 		</div> 
 

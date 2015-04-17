@@ -33,7 +33,7 @@ $leastAvgDeaths	 = array();
 $highestGold	 = array();
 $leastAvgGold	 = array();
 /* * ************* Average Assists  ************** */
-$maxAssists	 = array();
+$maxAssists		 = array();
 /* * ************* Average Wards bought  ************** */
 $mostWards		 = array();
 /* * ************* Average CC  ************** */
@@ -43,6 +43,8 @@ $minions		 = array();
 /* * ************* Max killing spree ************** */
 $killingSprees	 = array();
 
+$totalGoldEarned = 0;
+$totalGoldSpent	 = 0;
 foreach ($champions_data as $champion)
 {
 	$picks_desc[$champion->championId]		 = $champion->played;
@@ -67,6 +69,8 @@ foreach ($champions_data as $champion)
 	$cc[$champion->championId]				 = $champion->maxTimeCrowdControlDealt;
 	$minions[$champion->championId]			 = $champion->maxMinionKills;
 	$killingSprees[$champion->championId]	 = $champion->maxKillingSpree;
+	$totalGoldEarned						 = $totalGoldEarned + $champion->cumulatedGoldEarned;
+	$totalGoldSpent							 = $totalGoldSpent + $champion->cumulatedGoldSpent;
 }
 
 $lucidityBought = 0;
