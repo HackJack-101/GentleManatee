@@ -139,7 +139,7 @@ $games = $teams_data->red->wins + $teams_data->blue->wins;
 				enabled: false
 			},
 			title: {
-				text: 'Who plays ?'
+				text: 'Who played ?'
 			},
 			subtitle: {
 				text: 'Highest ranking in S4'
@@ -218,7 +218,7 @@ $games = $teams_data->red->wins + $teams_data->blue->wins;
 				enabled: false
 			},
 			title: {
-				text: 'Winner teams and the first Drake'
+				text: 'Winner teams with first Drake'
 			},
 			tooltip: {
 				pointFormat: '{series.name}: <b>{point.y}</b>'
@@ -259,7 +259,7 @@ $games = $teams_data->red->wins + $teams_data->blue->wins;
 				enabled: false
 			},
 			title: {
-				text: 'Winner teams and the first tower'
+				text: 'Winner teams with first tower'
 			},
 			tooltip: {
 				pointFormat: '{series.name}: <b>{point.y}</b>'
@@ -300,7 +300,7 @@ $games = $teams_data->red->wins + $teams_data->blue->wins;
 				enabled: false
 			},
 			title: {
-				text: 'Winner teams and the first Nashor'
+				text: 'Winner teams with first Nashor'
 			},
 			tooltip: {
 				pointFormat: '{series.name}: <b>{point.y}</b>'

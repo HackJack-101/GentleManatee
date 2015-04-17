@@ -319,17 +319,17 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 
 		<div class="row">
 			<div class="col-xs-7">Magic damage taken</div>
-			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedMagicDamageTaken / $champions_data->$id->cumulatedTotalDamageTaken * 100, 1); ?></div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedMagicDamageTaken / $champions_data->$id->cumulatedTotalDamageTaken * 100, 1); ?>%</div>
 		</div>
 
 		<div class="row">
 			<div class="col-xs-7">Physical damage taken</div>
-			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedPhysicalDamageTaken / $champions_data->$id->cumulatedTotalDamageTaken * 100, 1); ?></div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedPhysicalDamageTaken / $champions_data->$id->cumulatedTotalDamageTaken * 100, 1); ?>%</div>
 		</div>
 
 		<div class="row">
 			<div class="col-xs-7">True damage taken</div>
-			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedTrueDamageTaken / $champions_data->$id->cumulatedTotalDamageTaken * 100, 1); ?></div>
+			<div class="col-xs-5 right"><?php echo round($champions_data->$id->cumulatedTrueDamageTaken / $champions_data->$id->cumulatedTotalDamageTaken * 100, 1); ?>%</div>
 		</div>
 
 		<h4 class="center">Utility</h4>
